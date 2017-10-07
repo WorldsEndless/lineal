@@ -1,0 +1,17 @@
+* Lineal
+Basic linear algebra being implemented in Clojure and fronted with a web app. This is not intended as a library (there are many better libraries if you want to actually perform linear algebra computqations), but is my way of better understanding linear algebra. 
+
+** Prerequisites
+
+You will need [Leiningen][1] 2.0 or above installed.
+
+[1]: https://github.com/technomancy/leiningen
+
+** Running
+
+To start a web server for the application, run:
+
+    lein run 
+
+* License
+Copyright © 2017 Tory Anderson
