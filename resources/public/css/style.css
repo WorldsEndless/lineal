@@ -1,0 +1,28 @@
+span.term {
+  font-weight: 600;
+  margin-right: 1em;
+}
+
+div.matrix-mult div {
+  display: inline-block;
+  margin: 2em;
+}
+
+table.matrix {
+  border-style: solid;
+  border-width: 1px;
+}
+
+table.matrix th, table.matrix td {
+  padding: 5px;
+  border-style: solid;
+  border-width: 1px;
+  min-width: 2em;
+  text-align: center;
+}
+
+table.matrix th input, table.matrix td input {
+  max-width: 5em;
+  min-width: 3em;
+  text-align: center;
+}
