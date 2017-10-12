@@ -7,6 +7,10 @@ span.term {
   text-align: center;
 }
 
+div.inputs {
+  border: solid black 2px;
+}
+
 div.row-control {
   text-align: right;
 }
@@ -47,6 +51,7 @@ div.increase, div.decrease {
 table.matrix {
   border-style: solid;
   border-width: 1px;
+  margin: auto;
 }
 
 table.matrix th, table.matrix td {

@@ -62,7 +62,7 @@
       -target
       -value))
 
-(defn render-dynamic-matrix [M]
+(defn _render-dynamic-matrix [M]
   (let [rows (la/get-rows @M)]
     [:table.matrix
      (into [:tbody]
@@ -83,6 +83,37 @@
              (into [:tr]
                    (for [item row] [:td item]))))]))
 
+(defn render-dynamic-matrix [matrix-atom title]
+  [:div.inputs.col-md-5
+   [:div.input.row
+    [:div.col ;-md-5
+     [:p.text-center.title title]]]
+   [:div.row
+    [:div.col-md-2.row-control
+     [:div.stack
+      [:div.row
+       [:div.increase
+        [:a.button.btn-success {:on-click #(swap! matrix-atom add-row)}
+         [:i.fa.fa-plus]]]]
+      [:div.row
+       [:div.explanation "Rows"]]
+      [:div.row
+       [:div.decrease
+        [:a.button.btn-danger {:on-click #(swap! matrix-atom drop-row)}
+         [:i.fa.fa-minus]]]]]]
+    [:div.matrix.col-md-3
+     [_render-dynamic-matrix matrix-atom]]]
+   [:div.row.col-control
+    [:div
+     [:div.col-md-4 ""]
+     [:div.col-md-1.decrease
+      [:a.button.btn-danger.decrease {:on-click #(swap! matrix-atom drop-column)}
+       [:i.fa.fa-minus]]]
+     [:div.col-md-3.explanation "Columns"]
+     [:div.col-md-1.increase
+      [:a.button.btn-success {:on-click #(swap! matrix-atom add-column)}
+       [:i.fa.fa-plus]]]]]])
+
 (defn home-page []
   [:div.container
    [:div.jumbotron
@@ -100,78 +131,20 @@
       [:a {:href "https://github.com/WorldsEndless/lineal/blob/master/src/cljs/lineal/linear.cljs"} "the code on github"]
       " in which I've implemented what you find on this site"]]]
    [:div.row.matrix-mult
-    [:div.inputs.container
-     [:div.input.row
-      [:div.col-md-5
-       [:p.text-center.title "Matrix A"]]]
-     [:div.row
-      [:div.col.col-md-1.row-control
-       [:div.col.stack
-        [:div.row
-         [:div.increase
-          [:a.button.btn-success {:on-click #(swap! A add-row)}
-           [:i.fa.fa-plus]]]]
-        [:div.row
-         [:div.explanation "Rows"]]
-        [:div.row
-         [:div.decrease
-          [:a.button.btn-danger {:on-click #(swap! A drop-row)}
-           [:i.fa.fa-minus]]]]]]
-      [:div.matrix.col-md-3
-       [render-dynamic-matrix A]]]
-     [:div.row.col-control
-      [:div.col-md-1 ""]
-      [:div.col-md-1.decrease
-       [:a.button.btn-danger {:on-click #(swap! A drop-column)}
-        [:i.fa.fa-minus]]]
-      [:div.col-md-2.explanation "Columns"]
-      [:div.col-md-1.increase
-       [:a.button.btn-success {:on-click #(swap! A add-column)}
-        [:i.fa.fa-plus]]]]]
-
-    [:div.row.swapper
-     [:div.col-md-5
-      [:h1.text-center
-       [:a.button.btn-success {:on-click (fn [e] (let [c @A]
-                                                   (reset! A @B)
-                                                   (reset! B c))
-
-)}
-        [:i.fa.fa-exchange]]]]]
-    [:div.inputs.container
-     [:div.input.row
-      [:div.col-md-5
-       [:p.text-center.title "Matrix B"]]]
-     [:div.row
-      [:div.col.col-md-1.row-control
-       [:div.col.stack
-        [:div.row
-         [:div.increase
-          [:a.button.btn-success {:on-click #(swap! B add-row)}
-           [:i.fa.fa-plus]]]]
-        [:div.row
-         [:div.explanation "Rows"]]
-        [:div.row
-         [:div.decrease
-          [:a.button.btn-danger {:on-click #(swap! B drop-row)}
-           [:i.fa.fa-minus]]]]]]
-      [:div.matrix.col-md-3
-       [render-dynamic-matrix B]]]
-     [:div.row.col-control
-      [:div.col-md-1 ""]
-      [:div.col-md-1.decrease
-       [:a.button.btn-danger {:on-click #(swap! B drop-column)}
-        [:i.fa.fa-minus]]]
-      [:div.col-md-2.explanation "Columns"]
-      [:div.col-md-1.increase
-       [:a.button.btn-success {:on-click #(swap! B add-column)}
-        [:i.fa.fa-plus]]]]]
-    [:div.output.row
-     [:div.col-md-5
-      [:p.text-center.title "Product of A and B"]]]
+    [render-dynamic-matrix A "Matrix A"]
+    [:div.col-md-1.swapper
+     [:h1.text-center
+      [:a.button.btn-success {:on-click (fn [e] (let [c @A]
+                                                  (reset! A @B)
+                                                  (reset! B c)))}
+       [:i.fa.fa-exchange]]]]
+    [render-dynamic-matrix B "Matrix B"]]
+   [:div.product
     [:div.row
-     [:div.col-md-2 ""]
-     [:div.matrix.col-md-3
+      [:div.col
+       [:p.text-center.title "Product of A and B"]]]
+    [:div.row
+     [:div.matrix.col
       (try 
         (render-matrix (la/m* @A @B))
         (catch :default e

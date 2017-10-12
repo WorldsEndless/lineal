@@ -20,6 +20,7 @@
 ;;      [:div.content {:width "100%"
 ;;                     :display "block"
 ;;                     :text-align "center"}]
+  [:div.inputs {:border "solid black 2px"}]
   [:div.row-control
    {:text-align "right"}]
   [:div.stack
@@ -36,21 +37,9 @@
                       }]]
   [:div.matrix {:padding 0}]
   [:div.increase :div.decrease {:padding 0}]
-  ;;]]
-
-   ;; [:div.controller {:display "block"
-   ;;                   :border "solid 1px"
-   ;;                   :width "50%"
-   ;;                   :margin "0 auto"}
-   ;;  [:div.explanation {:font-weight "600"
-   ;;                     :font-size "1.3em"}]
-   ;;  [:div.decrease :div.increase {:margin "0.5em"
-   ;;                                :font-size "2em"}
-   ;;   [:a {:padding "8px"}]]]
-  ;;]
-[:table.matrix {:border-style "solid"
-                  :border-width "1px"
-                  ;:margin "auto"
+  [:table.matrix {:border-style "solid"
+                :border-width "1px"
+                :margin "auto"
                   ;:display "inline-block"
                   }
    [:th :td {:padding "5px"
