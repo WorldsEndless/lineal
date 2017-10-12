@@ -3,9 +3,45 @@ span.term {
   margin-right: 1em;
 }
 
-div.matrix-mult div {
-  display: inline-block;
-  margin: 2em;
+.text-center {
+  text-align: center;
+}
+
+div.row-control {
+  text-align: right;
+}
+
+div.stack {
+  display: table;
+}
+
+div.stack div {
+  float: none;
+  width: 1em;
+  margin: 0;
+}
+
+div.stack div.row {
+  display: table-row;
+}
+
+div.stack div.row div {
+  display: table-cell;
+}
+
+div.stack div.explanation {
+  transform: rotate(270deg);
+  transform-origin: middle bottom 0;
+  height: 3em;
+  vertical-align: bottom;
+}
+
+div.matrix {
+  padding: 0;
+}
+
+div.increase, div.decrease {
+  padding: 0;
 }
 
 table.matrix {

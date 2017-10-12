@@ -35,6 +35,24 @@
 (def A (r/atom [[3 2 1] [-2 4 -3]]))
 (def B (r/atom [[-2 4][1 1][3 6]]))
 
+(defn drop-row [m]
+  (into []
+        (for [column (la/get-columns m)]
+          (into [] (rest column)))))
+
+(defn drop-column [m]
+  (into [] (rest m)))
+
+(defn add-row [m]
+  (into []
+        (for [column (la/get-columns m)]
+          (into [] (conj column 0)))))
+
+(defn add-column [m]
+  (let [row-num (la/count-rows m)]
+    (conj m (into [] (repeat row-num 0)))))
+
+
 (defn edit-matrix [M row-num col-num val]
   (swap! M update col-num
          (fn [column] (update column row-num (constantly val)))))
@@ -78,15 +96,81 @@
      [:li [:a {:href "https://en.m.wikipedia.org/wiki/Matrix_multiplication"} "Wikipedia"] " (Which may not be all that helpful)"]
      [:li [:a {:href "https://www.youtube.com/watch?v=kYB8IZa5AuE&index=4&list=PLZHQObOWTQDPD3MizzM2xVFitgF8hE_ab"} "Youtube: Essence of Linear Algebra"] "(Excellent!)"]
      [:li [:a {:href "https://www.amazon.com/Linear-Algebra-Applications-Featured-Introductory/dp/0321962214/ref=sr_1_1?ie=UTF8&qid=1507364868&sr=8-1&keywords=linear+algebra+with+applications"} "Textbooks like this"] " also proved useful for me, when considered in conjunction with the other explanations"]
-     [:li "And don't forget to check out the code in which I've implemented the basic matrix multiplication you see below"]]]
-   [:div.matrix-mult
-    [:div.input "Matrix A"
-     [render-dynamic-matrix A]]
-    [:div.input "Matrix B"
-     [render-dynamic-matrix B]]
-    [:div.output
-     [:div "Product of A and B"
-      (render-matrix (la/m* @A @B))]]
+     [:li "And don't forget to check out "
+      [:a {:href "https://github.com/WorldsEndless/lineal/blob/master/src/cljs/lineal/linear.cljs"} "the code on github"]
+      " in which I've implemented what you find on this site"]]]
+   [:div.row.matrix-mult
+    [:div.inputs.container
+     [:div.input.row
+      [:div.col-md-5
+       [:p.text-center.title "Matrix A"]]]
+     [:div.row
+      [:div.col.col-md-1.row-control
+       [:div.col.stack
+        [:div.row
+         [:div.increase
+          [:a.button.btn-success {:on-click #(swap! A add-row)}
+           [:i.fa.fa-plus]]]]
+        [:div.row
+         [:div.explanation "Rows"]]
+        [:div.row
+         [:div.decrease
+          [:a.button.btn-danger {:on-click #(swap! A drop-row)}
+           [:i.fa.fa-minus]]]]]]
+      [:div.matrix.col-md-3
+       [render-dynamic-matrix A]]]
+     [:div.row.col-control
+      [:div.col-md-1 ""]
+      [:div.col-md-1.decrease
+       [:a.button.btn-danger {:on-click #(swap! A drop-column)}
+        [:i.fa.fa-minus]]]
+      [:div.col-md-2.explanation "Columns"]
+      [:div.col-md-1.increase
+       [:a.button.btn-success {:on-click #(swap! A add-column)}
+        [:i.fa.fa-plus]]]]]
+    [:div.inputs.container
+     [:div.input.row
+      [:div.col-md-5
+       [:p.text-center.title "Matrix B"]]]
+     [:div.row
+      [:div.col.col-md-1.row-control
+       [:div.col.stack
+        [:div.row
+         [:div.increase
+          [:a.button.btn-success {:on-click #(swap! B add-row)}
+           [:i.fa.fa-plus]]]]
+        [:div.row
+         [:div.explanation "Rows"]]
+        [:div.row
+         [:div.decrease
+          [:a.button.btn-danger {:on-click #(swap! B drop-row)}
+           [:i.fa.fa-minus]]]]]]
+      [:div.matrix.col-md-3
+       [render-dynamic-matrix B]]]
+     [:div.row.col-control
+      [:div.col-md-1 ""]
+      [:div.col-md-1.decrease
+       [:a.button.btn-danger {:on-click #(swap! B drop-column)}
+        [:i.fa.fa-minus]]]
+      [:div.col-md-2.explanation "Columns"]
+      [:div.col-md-1.increase
+       [:a.button.btn-success {:on-click #(swap! B add-column)}
+        [:i.fa.fa-plus]]]]]
+    [:div.output.row
+     [:div.col-md-5
+      [:p.text-center.title "Product of A and B"]]]
+    [:div.row
+     [:div.col-md-2 ""]
+     [:div.matrix.col-md-3
+      (try 
+        (render-matrix (la/m* @A @B))
+        (catch :default e
+          (if (= :illegal-matrix-multiplication (-> e ex-data :cause))
+            [:div.infobox.error (str "Illegal Matrix Multiplication: " ) ]
+            [:div.error "error"])))]
+     ]
+
+    
     ]])
 
 
