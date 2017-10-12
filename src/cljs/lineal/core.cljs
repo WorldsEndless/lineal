@@ -128,6 +128,16 @@
       [:div.col-md-1.increase
        [:a.button.btn-success {:on-click #(swap! A add-column)}
         [:i.fa.fa-plus]]]]]
+
+    [:div.row.swapper
+     [:div.col-md-5
+      [:h1.text-center
+       [:a.button.btn-success {:on-click (fn [e] (let [c @A]
+                                                   (reset! A @B)
+                                                   (reset! B c))
+
+)}
+        [:i.fa.fa-exchange]]]]]
     [:div.inputs.container
      [:div.input.row
       [:div.col-md-5
@@ -165,8 +175,8 @@
       (try 
         (render-matrix (la/m* @A @B))
         (catch :default e
-          (if (= :illegal-matrix-multiplication (-> e ex-data :cause))
-            [:div.infobox.error (str "Illegal Matrix Multiplication: " ) ]
+          (if (= :illegal-matrix-multiplication (-> e ex-data :type))
+            [:div.infobox.error (str "Illegal Matrix Multiplication: " (-> e ex-data :cause) ) ]
             [:div.error "error"])))]
      ]
 
