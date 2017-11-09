@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <html>
   <head>
-      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    {% script "/assets/mathjax/MathJax.js?config=TeX-MML-AM_CHTML" %}
       <title>Welcome to lineal</title>
   </head>
   <body>
@@ -27,6 +28,7 @@
         var context = "{{servlet-context}}";
         var csrfToken = "{{csrf-token}}";
     </script>
+
     {% script "/js/app.js" %}
   </body>
 </html>

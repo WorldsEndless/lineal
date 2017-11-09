@@ -21,6 +21,7 @@
                  [org.webjars.bower/tether "1.4.0"]
                  [org.webjars/bootstrap "4.0.0-alpha.5"]
                  [org.webjars/font-awesome "4.7.0"]
+                 [org.webjars.npm/mathjax "2.7.1"]
                  [reagent "0.7.0"]
                  [reagent-utils "0.2.1"]
                  [ring-webjars "0.2.0"]
@@ -28,7 +29,8 @@
                  [ring/ring-defaults "0.3.1"]
                  [secretary "1.2.3"]
                  [selmer "1.11.1"]
-                 [garden "1.3.2"]]
+                 [garden "1.3.2"]
+                 [garden-gnome "0.1.0"]]
 
   :min-lein-version "2.0.0"
 
@@ -43,9 +45,8 @@
             [lein-cljsbuild "1.1.5"]
             [lein-immutant "2.1.0"]
             [lein-garden "0.3.0"]]
-  :garden {:builds [{:id "fttv-viz"
-                     :source-paths ["src/clj"]
-                     ;; The var containing your stylesheet:
+  :garden {:builds [{:id "lineal"
+                     :source-path "src/clj"
                      :stylesheet lineal.style/lineal
                      :compiler {:output-to "resources/public/css/style.css"
                                 :pretty-print? true}}]}

@@ -1057,3 +1057,499 @@ notifying browser that file changed:  target/cljsbuild/public/js/out/lineal/core
 [32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.682 seconds.[0m
 notifying browser that file changed:  target/cljsbuild/public/js/out/lineal/core.js
 Notifying browser that CSS file changed: resources/public/css/style.css
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 1.062 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/goog/deps.js
+notifying browser that file changed:  target/cljsbuild/public/js/out/cljs_deps.js
+notifying browser that file changed:  target/cljsbuild/public/js/out/lineal/core.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.954 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/goog/deps.js
+notifying browser that file changed:  target/cljsbuild/public/js/out/cljs_deps.js
+notifying browser that file changed:  target/cljsbuild/public/js/out/lineal/linear.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 1.62 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/lineal/linear.js
+Notifying browser that CSS file changed: resources/public/css/style.css
+Notifying browser that CSS file changed: resources/public/css/style.css
+Notifying browser that CSS file changed: resources/public/css/style.css
+Notifying browser that CSS file changed: resources/public/css/style.css
+Notifying browser that CSS file changed: resources/public/css/style.css
+Notifying browser that CSS file changed: resources/public/css/style.css
+Notifying browser that CSS file changed: resources/public/css/style.css
+Notifying browser that CSS file changed: resources/public/css/style.css
+Notifying browser that CSS file changed: resources/public/css/style.css
+Notifying browser that CSS file changed: resources/public/css/style.css
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.8 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/goog/deps.js
+notifying browser that file changed:  target/cljsbuild/public/js/out/cljs_deps.js
+notifying browser that file changed:  target/cljsbuild/public/js/out/lineal/core.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 1.358 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/lineal/matrix_multiplication.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 1.147 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/lineal/matrix_multiplication.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.779 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/lineal/matrix_multiplication.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.742 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/lineal/matrix_multiplication.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 1.003 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/lineal/matrix_multiplication.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.644 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/lineal/matrix_multiplication.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.621 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/lineal/matrix_multiplication.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.673 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/lineal/matrix_multiplication.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.583 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/lineal/matrix_multiplication.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.59 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/lineal/matrix_multiplication.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.603 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/lineal/matrix_multiplication.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.677 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/lineal/matrix_multiplication.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.484 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/lineal/core.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[31mFailed to compile "target/cljsbuild/public/js/app.js" in 0.309 seconds.[0m
+[36m----  Could not Analyze  src/cljs/lineal/core.cljs  ----[0m
+
+  [1mNo such namespace: lineal.linearity, could not locate lineal/linearity.cljs, lineal/linearity.cljc, or JavaScript source providing "lineal.linearity" [0m
+
+[36m----  Analysis Error : Please see src/cljs/lineal/core.cljs  ----[0m
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[36m----  Compiler Warning on   src/cljs/lineal/matrix_multiplication.cljs   line:134  column:5  ----[0m
+
+  [1mUse of undeclared Var lineal.matrix-multiplication/render-matrix-linearity[0m
+
+  [36m130[0m  [36m     ]]])[0m
+  [36m131[0m  [36m[0m
+  [36m132[0m  [36m(defn gen-page [][0m
+  [36m133[0m  [36m  [:div.container[0m
+  [33m134[0m  [1m   [render-matrix-linearity][0m
+  [0m   [0m  [33m    ^--- Use of undeclared Var lineal.matrix-multiplication/render-matrix-linearity[0m
+  [36m135[0m  [36m   [render-matrix-multiplication]])[0m
+
+[36m----  Compiler Warning : Please see src/cljs/lineal/matrix_multiplication.cljs  ----[0m
+[31mFailed to compile "target/cljsbuild/public/js/app.js" in 0.479 seconds.[0m
+[36m----  Could not Analyze  src/cljs/lineal/core.cljs  ----[0m
+
+  [1mNo such namespace: lineal.linearity, could not locate lineal/linearity.cljs, lineal/linearity.cljc, or JavaScript source providing "lineal.linearity" [0m
+
+[36m----  Analysis Error : Please see src/cljs/lineal/core.cljs  ----[0m
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.509 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/cljs_deps.js
+notifying browser that file changed:  target/cljsbuild/public/js/out/lineal/linearity.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.647 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/lineal/matrix_multiplication.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.477 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/lineal/core.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.679 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/lineal/core.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.462 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/lineal/linearity.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.485 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/lineal/linearity.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.445 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/lineal/linearity.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 3.718 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/goog/deps.js
+notifying browser that file changed:  target/cljsbuild/public/js/out/cljs_deps.js
+notifying browser that file changed:  target/cljsbuild/public/js/out/lineal/core.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.702 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/goog/deps.js
+notifying browser that file changed:  target/cljsbuild/public/js/out/cljs_deps.js
+notifying browser that file changed:  target/cljsbuild/public/js/out/lineal/core.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.583 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/lineal/linearity.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.489 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/lineal/linearity.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.468 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/lineal/linearity.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.461 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/lineal/linearity.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.451 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/lineal/linearity.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.455 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/lineal/linearity.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.48 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/lineal/linearity.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.45 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/lineal/linearity.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.478 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/lineal/linearity.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.385 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/cljs_deps.js
+notifying browser that file changed:  target/cljsbuild/public/js/out/lineal/linearity.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.46 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/lineal/linearity.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.374 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/lineal/linearity.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.362 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/lineal/linearity.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.42 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/lineal/linearity.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.442 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/lineal/linearity.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.471 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/lineal/linearity.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.35 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/lineal/linearity.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.399 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/lineal/linearity.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.375 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/lineal/linearity.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.392 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/cljs_deps.js
+notifying browser that file changed:  target/cljsbuild/public/js/out/lineal/linearity.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.334 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/lineal/linearity.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.363 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/lineal/linearity.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 1.404 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/goog/deps.js
+notifying browser that file changed:  target/cljsbuild/public/js/out/cljs_deps.js
+notifying browser that file changed:  target/cljsbuild/public/js/out/lineal/linearity.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 1.194 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/lineal/linearity.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 1.15 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/lineal/linearity.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 1.115 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/lineal/linearity.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[31mFailed to compile "target/cljsbuild/public/js/app.js" in 0.414 seconds.[0m
+[36m----  Could not Analyze  src/cljs/lineal/linearity.cljs   line:26  column:3  ----[0m
+
+  [1mlet requires an even number of forms in binding vector[0m
+
+  [36m25[0m  [36m(defn text-to-matrix [s][0m
+  [33m26[0m  [1m  (let [parts ][0m
+  [0m  [0m  [33m  ^--- let requires an even number of forms in binding vector[0m
+  [36m27[0m  [36m    [:div.matrix (sanitize s)])[0m
+  [36m28[0m  [36m  )[0m
+
+[36m----  Analysis Error : Please see src/cljs/lineal/linearity.cljs  ----[0m
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.809 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/lineal/linearity.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 1.147 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/goog/deps.js
+notifying browser that file changed:  target/cljsbuild/public/js/out/cljs_deps.js
+notifying browser that file changed:  target/cljsbuild/public/js/out/lineal/linearity.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 1.092 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/lineal/linearity.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.898 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/lineal/linearity.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 1.141 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/lineal/linearity.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 1.244 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/lineal/linearity.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.983 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/lineal/linearity.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.882 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/lineal/linearity.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.634 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/lineal/linearity.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[31mFailed to compile "target/cljsbuild/public/js/app.js" in 0.36 seconds.[0m
+[36m----  Could not Analyze  src/cljs/lineal/linearity.cljs   line:37  column:9  ----[0m
+
+  [1mWrong number of args (1) passed to: core/for[0m
+
+  [36m35[0m  [36m(defn render-linear-system [SYSTEM][0m
+  [36m36[0m  [36m  (into [:div.linear-equations][0m
+  [33m37[0m  [1m        (for [eq SYSTEM])))[0m
+  [0m  [0m  [33m        ^--- Wrong number of args (1) passed to: core/for[0m
+  [36m38[0m  [36m[0m
+  [36m39[0m  [36m(defn render-matrix-linearity [][0m
+  [36m40[0m  [36m  [:div.matrix-linearity[0m
+
+[36m----  Analysis Error : Please see src/cljs/lineal/linearity.cljs  ----[0m
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.635 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/lineal/linearity.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[36m----  Compiler Warning on   src/cljs/lineal/linearity.cljs   line:36  column:4  ----[0m
+
+  [1mUse of undeclared Var lineal.linearity/swap[0m
+
+  [36m32[0m  [36m     (str/join "--" coefficients)])[0m
+  [36m33[0m  [36m  )[0m
+  [36m34[0m  [36m[0m
+  [36m35[0m  [36m(defn delete-equation [ATOM][0m
+  [33m36[0m  [1m  (swap ATOM drop-last))[0m
+  [0m  [0m  [33m   ^--- Use of undeclared Var lineal.linearity/swap[0m
+  [36m37[0m  [36m[0m
+  [36m38[0m  [36m(defn add-equation [ATOM][0m
+  [36m39[0m  [36m  (swap ATOM conj "" ))[0m
+  [36m40[0m  [36m[0m
+  [36m41[0m  [36m(defn render-linear-system[0m
+
+[36m----  Compiler Warning : Please see src/cljs/lineal/linearity.cljs  ----[0m
+[36m----  Compiler Warning on   src/cljs/lineal/linearity.cljs   line:39  column:4  ----[0m
+
+  [1mUse of undeclared Var lineal.linearity/swap[0m
+
+  [36m35[0m  [36m(defn delete-equation [ATOM][0m
+  [36m36[0m  [36m  (swap ATOM drop-last))[0m
+  [36m37[0m  [36m[0m
+  [36m38[0m  [36m(defn add-equation [ATOM][0m
+  [33m39[0m  [1m  (swap ATOM conj "" ))[0m
+  [0m  [0m  [33m   ^--- Use of undeclared Var lineal.linearity/swap[0m
+  [36m40[0m  [36m[0m
+  [36m41[0m  [36m(defn render-linear-system[0m
+  [36m42[0m  [36m  "Render a dynamic number of inputs for linear systems"[0m
+  [36m43[0m  [36m  [SYSTEM][0m
+  [36m44[0m  [36m  (let [add-button  [:a.button.btn-success {:on-click #(add-equation SYSTEM)} "Add Equation"][0m
+
+[36m----  Compiler Warning : Please see src/cljs/lineal/linearity.cljs  ----[0m
+[31mFailed to compile "target/cljsbuild/public/js/app.js" in 0.375 seconds.[0m
+[36m----  Could not Analyze  src/cljs/lineal/linearity.cljs   line:47  column:6  ----[0m
+
+  [1mWrong number of args (1) passed to: core/for[0m
+
+  [36m45[0m  [36m    delete-button [:a.button.btn-danger {:on-click #(delete-equation SYSTEM)} "Delete Equation"]][0m
+  [36m46[0m  [36m[:div.equation[0m
+  [33m47[0m  [1m (for [eq @SYSTEM])][0m
+  [0m  [0m  [33m ^--- Wrong number of args (1) passed to: core/for[0m
+  [36m48[0m  [36m)[0m
+
+[36m----  Analysis Error : Please see src/cljs/lineal/linearity.cljs  ----[0m
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[36m----  Compiler Warning on   src/cljs/lineal/linearity.cljs   line:36  column:4  ----[0m
+
+  [1mUse of undeclared Var lineal.linearity/swap[0m
+
+  [36m32[0m  [36m     (str/join "--" coefficients)])[0m
+  [36m33[0m  [36m  )[0m
+  [36m34[0m  [36m[0m
+  [36m35[0m  [36m(defn delete-equation [ATOM][0m
+  [33m36[0m  [1m  (swap ATOM drop-last))[0m
+  [0m  [0m  [33m   ^--- Use of undeclared Var lineal.linearity/swap[0m
+  [36m37[0m  [36m[0m
+  [36m38[0m  [36m(defn add-equation [ATOM][0m
+  [36m39[0m  [36m  (swap ATOM conj "" ))[0m
+  [36m40[0m  [36m[0m
+  [36m41[0m  [36m(defn render-linear-system[0m
+
+[36m----  Compiler Warning : Please see src/cljs/lineal/linearity.cljs  ----[0m
+[36m----  Compiler Warning on   src/cljs/lineal/linearity.cljs   line:39  column:4  ----[0m
+
+  [1mUse of undeclared Var lineal.linearity/swap[0m
+
+  [36m35[0m  [36m(defn delete-equation [ATOM][0m
+  [36m36[0m  [36m  (swap ATOM drop-last))[0m
+  [36m37[0m  [36m[0m
+  [36m38[0m  [36m(defn add-equation [ATOM][0m
+  [33m39[0m  [1m  (swap ATOM conj "" ))[0m
+  [0m  [0m  [33m   ^--- Use of undeclared Var lineal.linearity/swap[0m
+  [36m40[0m  [36m[0m
+  [36m41[0m  [36m(defn render-linear-system[0m
+  [36m42[0m  [36m  "Render a dynamic number of inputs for linear systems"[0m
+  [36m43[0m  [36m  [SYSTEM][0m
+  [36m44[0m  [36m  (let [add-button  [:a.button.btn-success {:on-click #(add-equation SYSTEM)} "Add Equation"][0m
+
+[36m----  Compiler Warning : Please see src/cljs/lineal/linearity.cljs  ----[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.942 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/lineal/linearity.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 1.157 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/lineal/linearity.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.902 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/lineal/linearity.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 1.047 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/lineal/linearity.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 1.048 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/lineal/linearity.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.833 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/lineal/linearity.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 1.009 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/lineal/linearity.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.975 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/lineal/linearity.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 1.047 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/lineal/linearity.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.658 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/lineal/linearity.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.506 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/lineal/linearity.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.719 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/lineal/linearity.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.497 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/lineal/linearity.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.763 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/lineal/linearity.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.438 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/lineal/linearity.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.754 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/lineal/linearity.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.744 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/lineal/linearity.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.478 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/lineal/linearity.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.843 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/lineal/linearity.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.423 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/lineal/linearity.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.617 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/lineal/linearity.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.731 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/lineal/linearity.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.68 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/lineal/linearity.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.715 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/lineal/linearity.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.472 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/lineal/linearity.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.713 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/lineal/linearity.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.483 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/lineal/linearity.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.634 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/lineal/linearity.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.451 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/lineal/linearity.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.6 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/lineal/linearity.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.602 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/lineal/linearity.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.612 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/lineal/linearity.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.475 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/lineal/linearity.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.577 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/cljs_deps.js
+notifying browser that file changed:  target/cljsbuild/public/js/out/lineal/linearity.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.511 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/lineal/linearity.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.597 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/lineal/linearity.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 1.016 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/lineal/linearity.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.542 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/lineal/linearity.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[36m----  Compiler Warning on   src/cljs/lineal/linearity.cljs   line:58  column:6  ----[0m
+
+  [1mUse of undeclared Var lineal.linearity/rows[0m
+
+  [36m54[0m  [36m             [:div.row.equation[0m
+  [36m55[0m  [36m              [:input {:type "text"[0m
+  [36m56[0m  [36m                       :value (get @LINEAR-SYSTEM i)[0m
+  [36m57[0m  [36m                       :on-change #(swap! LINEAR-SYSTEM assoc i (-> % .-target .-value))}]]))[0m
+  [33m58[0m  [1m     rows[0m
+  [0m  [0m  [33m     ^--- Use of undeclared Var lineal.linearity/rows[0m
+  [36m59[0m  [36m     add-button[0m
+  [36m60[0m  [36m     delete-button]))[0m
+  [36m61[0m  [36m[0m
+  [36m62[0m  [36m(defn render-matrix-linearity [][0m
+  [36m63[0m  [36m  [:div.matrix-linearity[0m
+
+[36m----  Compiler Warning : Please see src/cljs/lineal/linearity.cljs  ----[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.784 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/lineal/linearity.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.546 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/lineal/linearity.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.498 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/lineal/linearity.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.51 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/lineal/linearity.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.524 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/lineal/linearity.js

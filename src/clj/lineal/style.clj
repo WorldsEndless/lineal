@@ -8,19 +8,7 @@
   [:span.term {:font-weight "600"
                :margin-right "1em"}]
   [:.text-center {:text-align "center"}]
-  ;; [:div.matrix-mult
-  ;;  [:div {:display "inline-block"
-  ;;         :margin "0 2em"
-  ;;         :text-align "center"}]
-   ;; [:div.inputs {:margin "0 auto"
-;;                  :width "100%"}
-;;     [:div.input {:display "block"
-;;                  :margin "auto"}
-;;      [:div.title {:display "block"}]
-;;      [:div.content {:width "100%"
-;;                     :display "block"
-;;                     :text-align "center"}]
-  [:div.inputs {:border "solid black 2px"}]
+  [:div.inputs {:border "solid red 2px"}]
   [:div.row-control
    {:text-align "right"}]
   [:div.stack
