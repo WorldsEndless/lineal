@@ -6,11 +6,6 @@
 
 (def LINEAR-SYSTEM (r/atom ["3x + 4b = 0"]))
 
-(defn sanitize [s] ;TODO: ensure space separation and alphabetical ordering of items
-  ;; ensure [+ -] are space-separated
-  s
-  )
-
 (defn refresh-mathjax []
   (-> js/MathJax .-Hub (.Queue (to-array ["Typeset" (.-Hub js/MathJax)]))))
 
@@ -23,17 +18,9 @@
                              (str/join " & " (map str row))))]
     (str open contents close)))
 
-(defn text-to-row-vector [s]
-  (let [s (sanitize s)
-        [left-side right-side] (map str/trim (str/split s #"="))
-        items (str/split left-side #" ") ; now all space-separated parts, like 3a + 2b
-        coefficients (filter (complement nil?)
-                             (map #(re-seq  #"\d+" %) items))]
-    (into [] (map (comp js/parseInt first) coefficients))))
-
 (defn system-to-matrix [system]
   (la/get-rows
-   (into [] (for [eq system] (text-to-row-vector eq)))))
+   (into [] (for [eq system] (la/text-to-row-vector eq)))))
 
 (defn delete-equation [ATOM]
   (swap! ATOM drop-last))

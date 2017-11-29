@@ -1553,3 +1553,748 @@ notifying browser that file changed:  target/cljsbuild/public/js/out/lineal/line
 [0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
 [32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.524 seconds.[0m
 notifying browser that file changed:  target/cljsbuild/public/js/out/lineal/linearity.js
+[36m----  Couldn't load Clojure file  src/cljc/lineal/linear.cljc   line:7  column:11  ----[0m
+
+  [1mUnable to resolve symbol: sanitize in this context[0m
+
+  [36m 6[0m  [36m(defn text-to-row-vector [s][0m
+  [33m 7[0m  [1m  (let [s (sanitize s)[0m
+  [0m  [0m  [33m          ^--- Unable to resolve symbol: sanitize in this context[0m
+  [36m 8[0m  [36m        [left-side right-side] (map str/trim (str/split s #"="))[0m
+  [36m 9[0m  [36m        items (str/split left-side #" ") ; now all space-separated parts, like 3a + 2b[0m
+  [36m10[0m  [36m        coefficients (filter (complement nil?)[0m
+
+[36m----  Exception Stack Trace  ----[0m
+
+java.lang.RuntimeException: Unable to resolve symbol: sanitize in this context
+ at clojure.lang.Util.runtimeException (Util.java:221)
+    clojure.lang.Compiler.resolveIn (Compiler.java:7164)
+    clojure.lang.Compiler.resolve (Compiler.java:7108)
+    clojure.lang.Compiler.analyzeSymbol (Compiler.java:7069)
+    clojure.lang.Compiler.analyze (Compiler.java:6648)
+    clojure.lang.Compiler.analyze (Compiler.java:6625)
+    clojure.lang.Compiler$InvokeExpr.parse (Compiler.java:3766)
+    clojure.lang.Compiler.analyzeSeq (Compiler.java:6870)
+    clojure.lang.Compiler.analyze (Compiler.java:6669)
+    clojure.lang.Compiler.access$300 (Compiler.java:38)
+    clojure.lang.Compiler$LetExpr$Parser.parse (Compiler.java:6269)
+    clojure.lang.Compiler.analyzeSeq (Compiler.java:6868)
+    clojure.lang.Compiler.analyze (Compiler.java:6669)
+    clojure.lang.Compiler.analyzeSeq (Compiler.java:6856)
+    clojure.lang.Compiler.analyze (Compiler.java:6669)
+    clojure.lang.Compiler.analyze (Compiler.java:6625)
+    clojure.lang.Compiler$BodyExpr$Parser.parse (Compiler.java:6001)
+    clojure.lang.Compiler$FnMethod.parse (Compiler.java:5380)
+    clojure.lang.Compiler$FnExpr.parse (Compiler.java:3972)
+    clojure.lang.Compiler.analyzeSeq (Compiler.java:6866)
+    clojure.lang.Compiler.analyze (Compiler.java:6669)
+    clojure.lang.Compiler.analyzeSeq (Compiler.java:6856)
+    clojure.lang.Compiler.analyze (Compiler.java:6669)
+    clojure.lang.Compiler.access$300 (Compiler.java:38)
+    clojure.lang.Compiler$DefExpr$Parser.parse (Compiler.java:589)
+    clojure.lang.Compiler.analyzeSeq (Compiler.java:6868)
+    clojure.lang.Compiler.analyze (Compiler.java:6669)
+    clojure.lang.Compiler.analyze (Compiler.java:6625)
+    clojure.lang.Compiler.eval (Compiler.java:6931)
+    clojure.lang.Compiler.load (Compiler.java:7379)
+    clojure.lang.Compiler.loadFile (Compiler.java:7317)
+    clojure.lang.RT$3.invoke (RT.java:320)
+    figwheel_sidecar.build_middleware.clj_reloading$handle_clj_source_reloading.invokeStatic (clj_reloading.clj:61)
+    figwheel_sidecar.build_middleware.clj_reloading$handle_clj_source_reloading.invoke (clj_reloading.clj:46)
+    figwheel_sidecar.build_middleware.clj_reloading$hook$fn__28069.invoke (clj_reloading.clj:93)
+    figwheel_sidecar.build_middleware.javascript_reloading$hook$fn__28102.invoke (javascript_reloading.clj:48)
+    figwheel_sidecar.components.cljs_autobuild$color_output$fn__28155.invoke (cljs_autobuild.clj:79)
+    figwheel_sidecar.components.cljs_autobuild$execute_build$fn__28196.invoke (cljs_autobuild.clj:231)
+    figwheel_sidecar.utils$sync_exec$fn__3472$fn__3473.invoke (utils.clj:13)
+    figwheel_sidecar.utils$sync_exec$fn__3472.invoke (utils.clj:12)
+    clojure.core$binding_conveyor_fn$fn__4676.invoke (core.clj:1941)
+    clojure.lang.AFn.applyToHelper (AFn.java:154)
+    clojure.lang.RestFn.applyTo (RestFn.java:132)
+    clojure.lang.Agent$Action.doRun (Agent.java:114)
+    clojure.lang.Agent$Action.run (Agent.java:163)
+    java.util.concurrent.ThreadPoolExecutor.runWorker (ThreadPoolExecutor.java:1149)
+    java.util.concurrent.ThreadPoolExecutor$Worker.run (ThreadPoolExecutor.java:624)
+    java.lang.Thread.run (Thread.java:748)
+
+[36m----  Couldn't load Clojure file  src/cljc/lineal/linear.cljc   line:1  column:1  ----[0m
+
+  [1mNo such var: clojure.core/clojure.string[0m
+
+  [33m1[0m  [1m(ns lineal.linear[0m
+  [0m [0m  [33m^--- No such var: clojure.core/clojure.string[0m
+  [36m2[0m  [36m  [clojure.string :as str])[0m
+  [36m3[0m  [36m[0m
+  [36m4[0m  [36m;; Vectors will be considered to be column vectors, meaning that what is written in clojure as [a b c] will be equivalent to the mathematic writing of it vertically (stacked)[0m
+
+[36m----  Exception Stack Trace  ----[0m
+
+java.lang.RuntimeException: No such var: clojure.core/clojure.string
+ at clojure.lang.Util.runtimeException (Util.java:221)
+    clojure.lang.Compiler.resolveIn (Compiler.java:7138)
+    clojure.lang.Compiler.resolve (Compiler.java:7108)
+    clojure.lang.Compiler.analyzeSymbol (Compiler.java:7069)
+    clojure.lang.Compiler.analyze (Compiler.java:6648)
+    clojure.lang.Compiler.analyze (Compiler.java:6625)
+    clojure.lang.Compiler$InvokeExpr.parse (Compiler.java:3766)
+    clojure.lang.Compiler.analyzeSeq (Compiler.java:6870)
+    clojure.lang.Compiler.analyze (Compiler.java:6669)
+    clojure.lang.Compiler.analyze (Compiler.java:6625)
+    clojure.lang.Compiler$BodyExpr$Parser.parse (Compiler.java:6001)
+    clojure.lang.Compiler$TryExpr$Parser.parse (Compiler.java:2277)
+    clojure.lang.Compiler.analyzeSeq (Compiler.java:6868)
+    clojure.lang.Compiler.analyze (Compiler.java:6669)
+    clojure.lang.Compiler.analyze (Compiler.java:6625)
+    clojure.lang.Compiler$BodyExpr$Parser.parse (Compiler.java:6001)
+    clojure.lang.Compiler$FnMethod.parse (Compiler.java:5380)
+    clojure.lang.Compiler$FnExpr.parse (Compiler.java:3972)
+    clojure.lang.Compiler.analyzeSeq (Compiler.java:6866)
+    clojure.lang.Compiler.analyze (Compiler.java:6669)
+    clojure.lang.Compiler.analyzeSeq (Compiler.java:6856)
+    clojure.lang.Compiler.analyze (Compiler.java:6669)
+    clojure.lang.Compiler.analyze (Compiler.java:6625)
+    clojure.lang.Compiler$InvokeExpr.parse (Compiler.java:3766)
+    clojure.lang.Compiler.analyzeSeq (Compiler.java:6870)
+    clojure.lang.Compiler.analyze (Compiler.java:6669)
+    clojure.lang.Compiler.analyze (Compiler.java:6625)
+    clojure.lang.Compiler$BodyExpr$Parser.parse (Compiler.java:6001)
+    clojure.lang.Compiler$FnMethod.parse (Compiler.java:5380)
+    clojure.lang.Compiler$FnExpr.parse (Compiler.java:3972)
+    clojure.lang.Compiler.analyzeSeq (Compiler.java:6866)
+    clojure.lang.Compiler.analyze (Compiler.java:6669)
+    clojure.lang.Compiler.eval (Compiler.java:6924)
+    clojure.lang.Compiler.eval (Compiler.java:6916)
+    clojure.lang.Compiler.load (Compiler.java:7379)
+    clojure.lang.Compiler.loadFile (Compiler.java:7317)
+    clojure.lang.RT$3.invoke (RT.java:320)
+    figwheel_sidecar.build_middleware.clj_reloading$handle_clj_source_reloading.invokeStatic (clj_reloading.clj:61)
+    figwheel_sidecar.build_middleware.clj_reloading$handle_clj_source_reloading.invoke (clj_reloading.clj:46)
+    figwheel_sidecar.build_middleware.clj_reloading$hook$fn__28069.invoke (clj_reloading.clj:93)
+    figwheel_sidecar.build_middleware.javascript_reloading$hook$fn__28102.invoke (javascript_reloading.clj:48)
+    figwheel_sidecar.components.cljs_autobuild$color_output$fn__28155.invoke (cljs_autobuild.clj:79)
+    figwheel_sidecar.components.cljs_autobuild$execute_build$fn__28196.invoke (cljs_autobuild.clj:231)
+    figwheel_sidecar.utils$sync_exec$fn__3472$fn__3473.invoke (utils.clj:13)
+    figwheel_sidecar.utils$sync_exec$fn__3472.invoke (utils.clj:12)
+    clojure.core$binding_conveyor_fn$fn__4676.invoke (core.clj:1941)
+    clojure.lang.AFn.applyToHelper (AFn.java:154)
+    clojure.lang.RestFn.applyTo (RestFn.java:132)
+    clojure.lang.Agent$Action.doRun (Agent.java:114)
+    clojure.lang.Agent$Action.run (Agent.java:163)
+    java.util.concurrent.ThreadPoolExecutor.runWorker (ThreadPoolExecutor.java:1149)
+    java.util.concurrent.ThreadPoolExecutor$Worker.run (ThreadPoolExecutor.java:624)
+    java.lang.Thread.run (Thread.java:748)
+
+[36m----  Couldn't load Clojure file  src/cljc/lineal/linear.cljc   line:1  column:1  ----[0m
+
+  [1mclojure.lang.PersistentVector cannot be cast to clojure.lang.Symbol[0m
+
+  [33m1[0m  [1m(ns lineal.linear[0m
+  [0m [0m  [33m^--- clojure.lang.PersistentVector cannot be cast to clojure.lang.Symbol[0m
+  [36m2[0m  [36m  (:refer [0m
+  [36m3[0m  [36m   [clojure.string :as str]))[0m
+
+[36m----  Exception Stack Trace  ----[0m
+
+java.lang.ClassCastException: clojure.lang.PersistentVector cannot be cast to clojure.lang.Symbol
+ at clojure.core$find_ns.invokeStatic (core.clj:3996)
+    clojure.core$refer.invokeStatic (core.clj:4087)
+    clojure.core$refer.doInvoke (core.clj:4087)
+    clojure.lang.RestFn.invoke (RestFn.java:410)
+    lineal.linear$eval51234$loading__5569__auto____51235.invoke (linear.cljc:1)
+    lineal.linear$eval51234.invokeStatic (linear.cljc:1)
+    lineal.linear$eval51234.invoke (linear.cljc:1)
+    clojure.lang.Compiler.eval (Compiler.java:6927)
+    clojure.lang.Compiler.eval (Compiler.java:6916)
+    clojure.lang.Compiler.load (Compiler.java:7379)
+    clojure.lang.Compiler.loadFile (Compiler.java:7317)
+    clojure.lang.RT$3.invoke (RT.java:320)
+    figwheel_sidecar.build_middleware.clj_reloading$handle_clj_source_reloading.invokeStatic (clj_reloading.clj:61)
+    figwheel_sidecar.build_middleware.clj_reloading$handle_clj_source_reloading.invoke (clj_reloading.clj:46)
+    figwheel_sidecar.build_middleware.clj_reloading$hook$fn__28069.invoke (clj_reloading.clj:93)
+    figwheel_sidecar.build_middleware.javascript_reloading$hook$fn__28102.invoke (javascript_reloading.clj:48)
+    figwheel_sidecar.components.cljs_autobuild$color_output$fn__28155.invoke (cljs_autobuild.clj:79)
+    figwheel_sidecar.components.cljs_autobuild$execute_build$fn__28196.invoke (cljs_autobuild.clj:231)
+    figwheel_sidecar.utils$sync_exec$fn__3472$fn__3473.invoke (utils.clj:13)
+    figwheel_sidecar.utils$sync_exec$fn__3472.invoke (utils.clj:12)
+    clojure.core$binding_conveyor_fn$fn__4676.invoke (core.clj:1941)
+    clojure.lang.AFn.applyToHelper (AFn.java:154)
+    clojure.lang.RestFn.applyTo (RestFn.java:132)
+    clojure.lang.Agent$Action.doRun (Agent.java:114)
+    clojure.lang.Agent$Action.run (Agent.java:163)
+    java.util.concurrent.ThreadPoolExecutor.runWorker (ThreadPoolExecutor.java:1149)
+    java.util.concurrent.ThreadPoolExecutor$Worker.run (ThreadPoolExecutor.java:624)
+    java.lang.Thread.run (Thread.java:748)
+
+[36m----  Couldn't load Clojure file  src/cljc/lineal/linear.cljc   line:9  column:11  ----[0m
+
+  [1mUnable to resolve symbol: sanitize in this context[0m
+
+  [36m 8[0m  [36m(defn text-to-row-vector [s][0m
+  [33m 9[0m  [1m  (let [s (sanitize s)[0m
+  [0m  [0m  [33m          ^--- Unable to resolve symbol: sanitize in this context[0m
+  [36m10[0m  [36m        [left-side right-side] (map str/trim (str/split s #"="))[0m
+  [36m11[0m  [36m        items (str/split left-side #" ") ; now all space-separated parts, like 3a + 2b[0m
+  [36m12[0m  [36m        coefficients (filter (complement nil?)[0m
+
+[36m----  Exception Stack Trace  ----[0m
+
+java.lang.RuntimeException: Unable to resolve symbol: sanitize in this context
+ at clojure.lang.Util.runtimeException (Util.java:221)
+    clojure.lang.Compiler.resolveIn (Compiler.java:7164)
+    clojure.lang.Compiler.resolve (Compiler.java:7108)
+    clojure.lang.Compiler.analyzeSymbol (Compiler.java:7069)
+    clojure.lang.Compiler.analyze (Compiler.java:6648)
+    clojure.lang.Compiler.analyze (Compiler.java:6625)
+    clojure.lang.Compiler$InvokeExpr.parse (Compiler.java:3766)
+    clojure.lang.Compiler.analyzeSeq (Compiler.java:6870)
+    clojure.lang.Compiler.analyze (Compiler.java:6669)
+    clojure.lang.Compiler.access$300 (Compiler.java:38)
+    clojure.lang.Compiler$LetExpr$Parser.parse (Compiler.java:6269)
+    clojure.lang.Compiler.analyzeSeq (Compiler.java:6868)
+    clojure.lang.Compiler.analyze (Compiler.java:6669)
+    clojure.lang.Compiler.analyzeSeq (Compiler.java:6856)
+    clojure.lang.Compiler.analyze (Compiler.java:6669)
+    clojure.lang.Compiler.analyze (Compiler.java:6625)
+    clojure.lang.Compiler$BodyExpr$Parser.parse (Compiler.java:6001)
+    clojure.lang.Compiler$FnMethod.parse (Compiler.java:5380)
+    clojure.lang.Compiler$FnExpr.parse (Compiler.java:3972)
+    clojure.lang.Compiler.analyzeSeq (Compiler.java:6866)
+    clojure.lang.Compiler.analyze (Compiler.java:6669)
+    clojure.lang.Compiler.analyzeSeq (Compiler.java:6856)
+    clojure.lang.Compiler.analyze (Compiler.java:6669)
+    clojure.lang.Compiler.access$300 (Compiler.java:38)
+    clojure.lang.Compiler$DefExpr$Parser.parse (Compiler.java:589)
+    clojure.lang.Compiler.analyzeSeq (Compiler.java:6868)
+    clojure.lang.Compiler.analyze (Compiler.java:6669)
+    clojure.lang.Compiler.analyze (Compiler.java:6625)
+    clojure.lang.Compiler.eval (Compiler.java:6931)
+    clojure.lang.Compiler.load (Compiler.java:7379)
+    clojure.lang.Compiler.loadFile (Compiler.java:7317)
+    clojure.lang.RT$3.invoke (RT.java:320)
+    figwheel_sidecar.build_middleware.clj_reloading$handle_clj_source_reloading.invokeStatic (clj_reloading.clj:61)
+    figwheel_sidecar.build_middleware.clj_reloading$handle_clj_source_reloading.invoke (clj_reloading.clj:46)
+    figwheel_sidecar.build_middleware.clj_reloading$hook$fn__28069.invoke (clj_reloading.clj:93)
+    figwheel_sidecar.build_middleware.javascript_reloading$hook$fn__28102.invoke (javascript_reloading.clj:48)
+    figwheel_sidecar.components.cljs_autobuild$color_output$fn__28155.invoke (cljs_autobuild.clj:79)
+    figwheel_sidecar.components.cljs_autobuild$execute_build$fn__28196.invoke (cljs_autobuild.clj:231)
+    figwheel_sidecar.utils$sync_exec$fn__3472$fn__3473.invoke (utils.clj:13)
+    figwheel_sidecar.utils$sync_exec$fn__3472.invoke (utils.clj:12)
+    clojure.core$binding_conveyor_fn$fn__4676.invoke (core.clj:1941)
+    clojure.lang.AFn.applyToHelper (AFn.java:154)
+    clojure.lang.RestFn.applyTo (RestFn.java:132)
+    clojure.lang.Agent$Action.doRun (Agent.java:114)
+    clojure.lang.Agent$Action.run (Agent.java:163)
+    java.util.concurrent.ThreadPoolExecutor.runWorker (ThreadPoolExecutor.java:1149)
+    java.util.concurrent.ThreadPoolExecutor$Worker.run (ThreadPoolExecutor.java:624)
+    java.lang.Thread.run (Thread.java:748)
+
+[36m----  Couldn't load Clojure file  src/cljc/lineal/linear.cljc   line:19  column:19  ----[0m
+
+  [1mNo such namespace: js[0m
+
+  [36m17[0m  [36m        coefficients (filter (complement nil?)[0m
+  [36m18[0m  [36m                             (map #(re-seq  #"\d+" %) items))][0m
+  [33m19[0m  [1m    (into [] (map (comp js/parseInt first) coefficients))))[0m
+  [0m  [0m  [33m                  ^--- No such namespace: js[0m
+  [36m20[0m  [36m[0m
+  [36m21[0m  [36m(defn matrix? [M?][0m
+  [36m22[0m  [36m  (when (coll? (first M?)) M?))[0m
+
+[36m----  Exception Stack Trace  ----[0m
+
+java.lang.RuntimeException: No such namespace: js
+ at clojure.lang.Util.runtimeException (Util.java:221)
+    clojure.lang.Compiler.resolveIn (Compiler.java:7134)
+    clojure.lang.Compiler.resolve (Compiler.java:7108)
+    clojure.lang.Compiler.analyzeSymbol (Compiler.java:7069)
+    clojure.lang.Compiler.analyze (Compiler.java:6648)
+    clojure.lang.Compiler.analyze (Compiler.java:6625)
+    clojure.lang.Compiler$InvokeExpr.parse (Compiler.java:3834)
+    clojure.lang.Compiler.analyzeSeq (Compiler.java:6870)
+    clojure.lang.Compiler.analyze (Compiler.java:6669)
+    clojure.lang.Compiler.analyze (Compiler.java:6625)
+    clojure.lang.Compiler$InvokeExpr.parse (Compiler.java:3834)
+    clojure.lang.Compiler.analyzeSeq (Compiler.java:6870)
+    clojure.lang.Compiler.analyze (Compiler.java:6669)
+    clojure.lang.Compiler.analyze (Compiler.java:6625)
+    clojure.lang.Compiler$InvokeExpr.parse (Compiler.java:3834)
+    clojure.lang.Compiler.analyzeSeq (Compiler.java:6870)
+    clojure.lang.Compiler.analyze (Compiler.java:6669)
+    clojure.lang.Compiler.analyze (Compiler.java:6625)
+    clojure.lang.Compiler$BodyExpr$Parser.parse (Compiler.java:6001)
+    clojure.lang.Compiler$LetExpr$Parser.parse (Compiler.java:6319)
+    clojure.lang.Compiler.analyzeSeq (Compiler.java:6868)
+    clojure.lang.Compiler.analyze (Compiler.java:6669)
+    clojure.lang.Compiler.analyzeSeq (Compiler.java:6856)
+    clojure.lang.Compiler.analyze (Compiler.java:6669)
+    clojure.lang.Compiler.analyze (Compiler.java:6625)
+    clojure.lang.Compiler$BodyExpr$Parser.parse (Compiler.java:6001)
+    clojure.lang.Compiler$FnMethod.parse (Compiler.java:5380)
+    clojure.lang.Compiler$FnExpr.parse (Compiler.java:3972)
+    clojure.lang.Compiler.analyzeSeq (Compiler.java:6866)
+    clojure.lang.Compiler.analyze (Compiler.java:6669)
+    clojure.lang.Compiler.analyzeSeq (Compiler.java:6856)
+    clojure.lang.Compiler.analyze (Compiler.java:6669)
+    clojure.lang.Compiler.access$300 (Compiler.java:38)
+    clojure.lang.Compiler$DefExpr$Parser.parse (Compiler.java:589)
+    clojure.lang.Compiler.analyzeSeq (Compiler.java:6868)
+    clojure.lang.Compiler.analyze (Compiler.java:6669)
+    clojure.lang.Compiler.analyze (Compiler.java:6625)
+    clojure.lang.Compiler.eval (Compiler.java:6931)
+    clojure.lang.Compiler.load (Compiler.java:7379)
+    clojure.lang.Compiler.loadFile (Compiler.java:7317)
+    clojure.lang.RT$3.invoke (RT.java:320)
+    figwheel_sidecar.build_middleware.clj_reloading$handle_clj_source_reloading.invokeStatic (clj_reloading.clj:61)
+    figwheel_sidecar.build_middleware.clj_reloading$handle_clj_source_reloading.invoke (clj_reloading.clj:46)
+    figwheel_sidecar.build_middleware.clj_reloading$hook$fn__28069.invoke (clj_reloading.clj:93)
+    figwheel_sidecar.build_middleware.javascript_reloading$hook$fn__28102.invoke (javascript_reloading.clj:48)
+    figwheel_sidecar.components.cljs_autobuild$color_output$fn__28155.invoke (cljs_autobuild.clj:79)
+    figwheel_sidecar.components.cljs_autobuild$execute_build$fn__28196.invoke (cljs_autobuild.clj:231)
+    figwheel_sidecar.utils$sync_exec$fn__3472$fn__3473.invoke (utils.clj:13)
+    figwheel_sidecar.utils$sync_exec$fn__3472.invoke (utils.clj:12)
+    clojure.core$binding_conveyor_fn$fn__4676.invoke (core.clj:1941)
+    clojure.lang.AFn.applyToHelper (AFn.java:154)
+    clojure.lang.RestFn.applyTo (RestFn.java:132)
+    clojure.lang.Agent$Action.doRun (Agent.java:114)
+    clojure.lang.Agent$Action.run (Agent.java:163)
+    java.util.concurrent.ThreadPoolExecutor.runWorker (ThreadPoolExecutor.java:1149)
+    java.util.concurrent.ThreadPoolExecutor$Worker.run (ThreadPoolExecutor.java:624)
+    java.lang.Thread.run (Thread.java:748)
+
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[36m----  Compiler Warning on   src/cljc/lineal/linear.cljc   line:28  column:1  ----[0m
+
+  [1mvector? already refers to: cljs.core/vector? being replaced by: lineal.linear/vector?[0m
+
+  [36m24[0m  [36m(defn single-column-matrix? [M][0m
+  [36m25[0m  [36m  (and (matrix? M)[0m
+  [36m26[0m  [36m       (= 1 (count M))))[0m
+  [36m27[0m  [36m[0m
+  [33m28[0m  [1m(def vector? (complement matrix?))[0m
+  [0m  [0m  [33m^--- vector? already refers to: cljs.core/vector? being replaced by: lineal.linear/vector?[0m
+  [36m29[0m  [36m[0m
+  [36m30[0m  [36m(defn matrix-to-vector[0m
+  [36m31[0m  [36m  "Convert a single-column matrix to a vector"[0m
+  [36m32[0m  [36m  [M][0m
+  [36m33[0m  [36m  (cond[0m
+
+[36m----  Compiler Warning : Please see src/cljc/lineal/linear.cljc  ----[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.955 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/goog/deps.js
+notifying browser that file changed:  target/cljsbuild/public/js/out/cljs_deps.js
+notifying browser that file changed:  target/cljsbuild/public/js/out/lineal/linearity.js
+[36m----  Couldn't load Clojure file  src/cljc/lineal/linear.cljc   line:21  column:19  ----[0m
+
+  [1mNo such namespace: js[0m
+
+  [36m19[0m  [36m        coefficients (filter (complement nil?)[0m
+  [36m20[0m  [36m                             (map #(re-seq  #"\d+" %) items))][0m
+  [33m21[0m  [1m    (into [] (map (comp js/parseInt first) coefficients))))[0m
+  [0m  [0m  [33m                  ^--- No such namespace: js[0m
+  [36m22[0m  [36m[0m
+  [36m23[0m  [36m(defn matrix? [M?][0m
+  [36m24[0m  [36m  (when (coll? (first M?)) M?))[0m
+
+[36m----  Exception Stack Trace  ----[0m
+
+java.lang.RuntimeException: No such namespace: js
+ at clojure.lang.Util.runtimeException (Util.java:221)
+    clojure.lang.Compiler.resolveIn (Compiler.java:7134)
+    clojure.lang.Compiler.resolve (Compiler.java:7108)
+    clojure.lang.Compiler.analyzeSymbol (Compiler.java:7069)
+    clojure.lang.Compiler.analyze (Compiler.java:6648)
+    clojure.lang.Compiler.analyze (Compiler.java:6625)
+    clojure.lang.Compiler$InvokeExpr.parse (Compiler.java:3834)
+    clojure.lang.Compiler.analyzeSeq (Compiler.java:6870)
+    clojure.lang.Compiler.analyze (Compiler.java:6669)
+    clojure.lang.Compiler.analyze (Compiler.java:6625)
+    clojure.lang.Compiler$InvokeExpr.parse (Compiler.java:3834)
+    clojure.lang.Compiler.analyzeSeq (Compiler.java:6870)
+    clojure.lang.Compiler.analyze (Compiler.java:6669)
+    clojure.lang.Compiler.analyze (Compiler.java:6625)
+    clojure.lang.Compiler$InvokeExpr.parse (Compiler.java:3834)
+    clojure.lang.Compiler.analyzeSeq (Compiler.java:6870)
+    clojure.lang.Compiler.analyze (Compiler.java:6669)
+    clojure.lang.Compiler.analyze (Compiler.java:6625)
+    clojure.lang.Compiler$BodyExpr$Parser.parse (Compiler.java:6001)
+    clojure.lang.Compiler$LetExpr$Parser.parse (Compiler.java:6319)
+    clojure.lang.Compiler.analyzeSeq (Compiler.java:6868)
+    clojure.lang.Compiler.analyze (Compiler.java:6669)
+    clojure.lang.Compiler.analyzeSeq (Compiler.java:6856)
+    clojure.lang.Compiler.analyze (Compiler.java:6669)
+    clojure.lang.Compiler.analyze (Compiler.java:6625)
+    clojure.lang.Compiler$BodyExpr$Parser.parse (Compiler.java:6001)
+    clojure.lang.Compiler$FnMethod.parse (Compiler.java:5380)
+    clojure.lang.Compiler$FnExpr.parse (Compiler.java:3972)
+    clojure.lang.Compiler.analyzeSeq (Compiler.java:6866)
+    clojure.lang.Compiler.analyze (Compiler.java:6669)
+    clojure.lang.Compiler.analyzeSeq (Compiler.java:6856)
+    clojure.lang.Compiler.analyze (Compiler.java:6669)
+    clojure.lang.Compiler.access$300 (Compiler.java:38)
+    clojure.lang.Compiler$DefExpr$Parser.parse (Compiler.java:589)
+    clojure.lang.Compiler.analyzeSeq (Compiler.java:6868)
+    clojure.lang.Compiler.analyze (Compiler.java:6669)
+    clojure.lang.Compiler.analyze (Compiler.java:6625)
+    clojure.lang.Compiler.eval (Compiler.java:6931)
+    clojure.lang.Compiler.load (Compiler.java:7379)
+    clojure.lang.Compiler.loadFile (Compiler.java:7317)
+    clojure.lang.RT$3.invoke (RT.java:320)
+    figwheel_sidecar.build_middleware.clj_reloading$handle_clj_source_reloading.invokeStatic (clj_reloading.clj:61)
+    figwheel_sidecar.build_middleware.clj_reloading$handle_clj_source_reloading.invoke (clj_reloading.clj:46)
+    figwheel_sidecar.build_middleware.clj_reloading$hook$fn__28069.invoke (clj_reloading.clj:93)
+    figwheel_sidecar.build_middleware.javascript_reloading$hook$fn__28102.invoke (javascript_reloading.clj:48)
+    figwheel_sidecar.components.cljs_autobuild$color_output$fn__28155.invoke (cljs_autobuild.clj:79)
+    figwheel_sidecar.components.cljs_autobuild$execute_build$fn__28196.invoke (cljs_autobuild.clj:231)
+    figwheel_sidecar.utils$sync_exec$fn__3472$fn__3473.invoke (utils.clj:13)
+    figwheel_sidecar.utils$sync_exec$fn__3472.invoke (utils.clj:12)
+    clojure.core$binding_conveyor_fn$fn__4676.invoke (core.clj:1941)
+    clojure.lang.AFn.applyToHelper (AFn.java:154)
+    clojure.lang.RestFn.applyTo (RestFn.java:132)
+    clojure.lang.Agent$Action.doRun (Agent.java:114)
+    clojure.lang.Agent$Action.run (Agent.java:163)
+    java.util.concurrent.ThreadPoolExecutor.runWorker (ThreadPoolExecutor.java:1149)
+    java.util.concurrent.ThreadPoolExecutor$Worker.run (ThreadPoolExecutor.java:624)
+    java.lang.Thread.run (Thread.java:748)
+
+[36m----  Couldn't load Clojure file  src/cljc/lineal/linear.cljc   line:19  column:19  ----[0m
+
+  [1mNo such namespace: js[0m
+
+  [36m17[0m  [36m        coefficients (filter (complement nil?)[0m
+  [36m18[0m  [36m                             (map #(re-seq  #"\d+" %) items))][0m
+  [33m19[0m  [1m    (into [] (map (comp js/parseInt first) coefficients))))[0m
+  [0m  [0m  [33m                  ^--- No such namespace: js[0m
+  [36m20[0m  [36m[0m
+  [36m21[0m  [36m(defn matrix? [M?][0m
+  [36m22[0m  [36m  (when (coll? (first M?)) M?))[0m
+
+[36m----  Exception Stack Trace  ----[0m
+
+java.lang.RuntimeException: No such namespace: js
+ at clojure.lang.Util.runtimeException (Util.java:221)
+    clojure.lang.Compiler.resolveIn (Compiler.java:7134)
+    clojure.lang.Compiler.resolve (Compiler.java:7108)
+    clojure.lang.Compiler.analyzeSymbol (Compiler.java:7069)
+    clojure.lang.Compiler.analyze (Compiler.java:6648)
+    clojure.lang.Compiler.analyze (Compiler.java:6625)
+    clojure.lang.Compiler$InvokeExpr.parse (Compiler.java:3834)
+    clojure.lang.Compiler.analyzeSeq (Compiler.java:6870)
+    clojure.lang.Compiler.analyze (Compiler.java:6669)
+    clojure.lang.Compiler.analyze (Compiler.java:6625)
+    clojure.lang.Compiler$InvokeExpr.parse (Compiler.java:3834)
+    clojure.lang.Compiler.analyzeSeq (Compiler.java:6870)
+    clojure.lang.Compiler.analyze (Compiler.java:6669)
+    clojure.lang.Compiler.analyze (Compiler.java:6625)
+    clojure.lang.Compiler$InvokeExpr.parse (Compiler.java:3834)
+    clojure.lang.Compiler.analyzeSeq (Compiler.java:6870)
+    clojure.lang.Compiler.analyze (Compiler.java:6669)
+    clojure.lang.Compiler.analyze (Compiler.java:6625)
+    clojure.lang.Compiler$BodyExpr$Parser.parse (Compiler.java:6001)
+    clojure.lang.Compiler$LetExpr$Parser.parse (Compiler.java:6319)
+    clojure.lang.Compiler.analyzeSeq (Compiler.java:6868)
+    clojure.lang.Compiler.analyze (Compiler.java:6669)
+    clojure.lang.Compiler.analyzeSeq (Compiler.java:6856)
+    clojure.lang.Compiler.analyze (Compiler.java:6669)
+    clojure.lang.Compiler.analyze (Compiler.java:6625)
+    clojure.lang.Compiler$BodyExpr$Parser.parse (Compiler.java:6001)
+    clojure.lang.Compiler$FnMethod.parse (Compiler.java:5380)
+    clojure.lang.Compiler$FnExpr.parse (Compiler.java:3972)
+    clojure.lang.Compiler.analyzeSeq (Compiler.java:6866)
+    clojure.lang.Compiler.analyze (Compiler.java:6669)
+    clojure.lang.Compiler.analyzeSeq (Compiler.java:6856)
+    clojure.lang.Compiler.analyze (Compiler.java:6669)
+    clojure.lang.Compiler.access$300 (Compiler.java:38)
+    clojure.lang.Compiler$DefExpr$Parser.parse (Compiler.java:589)
+    clojure.lang.Compiler.analyzeSeq (Compiler.java:6868)
+    clojure.lang.Compiler.analyze (Compiler.java:6669)
+    clojure.lang.Compiler.analyze (Compiler.java:6625)
+    clojure.lang.Compiler.eval (Compiler.java:6931)
+    clojure.lang.Compiler.load (Compiler.java:7379)
+    clojure.lang.Compiler.loadFile (Compiler.java:7317)
+    clojure.lang.RT$3.invoke (RT.java:320)
+    figwheel_sidecar.build_middleware.clj_reloading$handle_clj_source_reloading.invokeStatic (clj_reloading.clj:61)
+    figwheel_sidecar.build_middleware.clj_reloading$handle_clj_source_reloading.invoke (clj_reloading.clj:46)
+    figwheel_sidecar.build_middleware.clj_reloading$hook$fn__28069.invoke (clj_reloading.clj:93)
+    figwheel_sidecar.build_middleware.javascript_reloading$hook$fn__28102.invoke (javascript_reloading.clj:48)
+    figwheel_sidecar.components.cljs_autobuild$color_output$fn__28155.invoke (cljs_autobuild.clj:79)
+    figwheel_sidecar.components.cljs_autobuild$execute_build$fn__28196.invoke (cljs_autobuild.clj:231)
+    figwheel_sidecar.utils$sync_exec$fn__3472$fn__3473.invoke (utils.clj:13)
+    figwheel_sidecar.utils$sync_exec$fn__3472.invoke (utils.clj:12)
+    clojure.core$binding_conveyor_fn$fn__4676.invoke (core.clj:1941)
+    clojure.lang.AFn.applyToHelper (AFn.java:154)
+    clojure.lang.RestFn.applyTo (RestFn.java:132)
+    clojure.lang.Agent$Action.doRun (Agent.java:114)
+    clojure.lang.Agent$Action.run (Agent.java:163)
+    java.util.concurrent.ThreadPoolExecutor.runWorker (ThreadPoolExecutor.java:1149)
+    java.util.concurrent.ThreadPoolExecutor$Worker.run (ThreadPoolExecutor.java:624)
+    java.lang.Thread.run (Thread.java:748)
+
+WARNING: vector? already refers to: #'clojure.core/vector? in namespace: lineal.linear, being replaced by: #'lineal.linear/vector?
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[36m----  Compiler Warning on   src/cljc/lineal/linear.cljc   line:32  column:1  ----[0m
+
+  [1mvector? already refers to: cljs.core/vector? being replaced by: lineal.linear/vector?[0m
+
+  [36m28[0m  [36m(defn single-column-matrix? [M][0m
+  [36m29[0m  [36m  (and (matrix? M)[0m
+  [36m30[0m  [36m       (= 1 (count M))))[0m
+  [36m31[0m  [36m[0m
+  [33m32[0m  [1m(def vector? (complement matrix?))[0m
+  [0m  [0m  [33m^--- vector? already refers to: cljs.core/vector? being replaced by: lineal.linear/vector?[0m
+  [36m33[0m  [36m[0m
+  [36m34[0m  [36m(defn matrix-to-vector[0m
+  [36m35[0m  [36m  "Convert a single-column matrix to a vector"[0m
+  [36m36[0m  [36m  [M][0m
+  [36m37[0m  [36m  (cond[0m
+
+[36m----  Compiler Warning : Please see src/cljc/lineal/linear.cljc  ----[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.82 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/lineal/linear.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.607 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/lineal/linear.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 1.56 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/goog/deps.js
+notifying browser that file changed:  target/cljsbuild/public/js/out/cljs_deps.js
+notifying browser that file changed:  target/cljsbuild/public/js/out/lineal/linear.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 1.154 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/lineal/linear.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 1.019 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/lineal/linear.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[36m----  Compiler Warning on   src/cljc/lineal/linear.cljc   line:27  column:8  ----[0m
+
+  [1mWrong number of args (2) passed to clojure.string/replace[0m
+
+  [36m23[0m  [36m;;     (into [] (map (comp parse-int first) coefficients))))[0m
+  [36m24[0m  [36m[0m
+  [36m25[0m  [36m(defn text-to-row-vector [s][0m
+  [36m26[0m  [36m  (-> s[0m
+  [33m27[0m  [1m      #(str/replace #"\s-" "")))[0m
+  [0m  [0m  [33m       ^--- Wrong number of args (2) passed to clojure.string/replace[0m
+  [36m28[0m  [36m[0m
+  [36m29[0m  [36m(defn matrix? [M?][0m
+  [36m30[0m  [36m  (when (coll? (first M?)) M?))[0m
+  [36m31[0m  [36m[0m
+  [36m32[0m  [36m(defn single-column-matrix? [M][0m
+
+[36m----  Compiler Warning : Please see src/cljc/lineal/linear.cljc  ----[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.981 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/lineal/linear.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.783 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/lineal/linear.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.836 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/lineal/linear.js
+[36m----  Couldn't load Clojure file  src/cljc/lineal/linear.cljc   line:28  column:7  ----[0m
+
+  [1mParameter declaration str/replace should be a vector[0m
+
+  [36m26[0m  [36m  (-> s[0m
+  [36m27[0m  [36m      (str/replace #"\s" "") ; remove spaces[0m
+  [33m28[0m  [1m      (fn [s] (re-seq #"[0-9]+[a-zA-Z]?" s))[0m
+  [0m  [0m  [33m      ^--- Parameter declaration str/replace should be a vector[0m
+  [36m29[0m  [36m      ))[0m
+  [36m30[0m  [36m[0m
+  [36m31[0m  [36m(defn matrix? [M?][0m
+
+[36m----  Exception Stack Trace  ----[0m
+
+java.lang.IllegalArgumentException: Parameter declaration str/replace should be a vector
+ at clojure.core$fn$psig__5188.invoke (core.clj:4389)
+    clojure.core$map$fn__4785.invoke (core.clj:2646)
+    clojure.lang.LazySeq.sval (LazySeq.java:40)
+    clojure.lang.LazySeq.seq (LazySeq.java:49)
+    clojure.lang.RT.seq (RT.java:521)
+    clojure.lang.RT.countFrom (RT.java:625)
+    clojure.lang.RT.count (RT.java:618)
+    clojure.lang.Cons.count (Cons.java:49)
+    clojure.lang.Compiler.analyze (Compiler.java:6657)
+    clojure.lang.Compiler.analyzeSeq (Compiler.java:6856)
+    clojure.lang.Compiler.analyze (Compiler.java:6669)
+    clojure.lang.Compiler.analyzeSeq (Compiler.java:6856)
+    clojure.lang.Compiler.analyze (Compiler.java:6669)
+    clojure.lang.Compiler.analyze (Compiler.java:6625)
+    clojure.lang.Compiler$BodyExpr$Parser.parse (Compiler.java:6001)
+    clojure.lang.Compiler$FnMethod.parse (Compiler.java:5380)
+    clojure.lang.Compiler$FnExpr.parse (Compiler.java:3972)
+    clojure.lang.Compiler.analyzeSeq (Compiler.java:6866)
+    clojure.lang.Compiler.analyze (Compiler.java:6669)
+    clojure.lang.Compiler.analyzeSeq (Compiler.java:6856)
+    clojure.lang.Compiler.analyze (Compiler.java:6669)
+    clojure.lang.Compiler.access$300 (Compiler.java:38)
+    clojure.lang.Compiler$DefExpr$Parser.parse (Compiler.java:589)
+    clojure.lang.Compiler.analyzeSeq (Compiler.java:6868)
+    clojure.lang.Compiler.analyze (Compiler.java:6669)
+    clojure.lang.Compiler.analyze (Compiler.java:6625)
+    clojure.lang.Compiler.eval (Compiler.java:6931)
+    clojure.lang.Compiler.load (Compiler.java:7379)
+    clojure.lang.Compiler.loadFile (Compiler.java:7317)
+    clojure.lang.RT$3.invoke (RT.java:320)
+    figwheel_sidecar.build_middleware.clj_reloading$handle_clj_source_reloading.invokeStatic (clj_reloading.clj:61)
+    figwheel_sidecar.build_middleware.clj_reloading$handle_clj_source_reloading.invoke (clj_reloading.clj:46)
+    figwheel_sidecar.build_middleware.clj_reloading$hook$fn__28069.invoke (clj_reloading.clj:93)
+    figwheel_sidecar.build_middleware.javascript_reloading$hook$fn__28102.invoke (javascript_reloading.clj:48)
+    figwheel_sidecar.components.cljs_autobuild$color_output$fn__28155.invoke (cljs_autobuild.clj:79)
+    figwheel_sidecar.components.cljs_autobuild$execute_build$fn__28196.invoke (cljs_autobuild.clj:231)
+    figwheel_sidecar.utils$sync_exec$fn__3472$fn__3473.invoke (utils.clj:13)
+    figwheel_sidecar.utils$sync_exec$fn__3472.invoke (utils.clj:12)
+    clojure.core$binding_conveyor_fn$fn__4676.invoke (core.clj:1941)
+    clojure.lang.AFn.applyToHelper (AFn.java:154)
+    clojure.lang.RestFn.applyTo (RestFn.java:132)
+    clojure.lang.Agent$Action.doRun (Agent.java:114)
+    clojure.lang.Agent$Action.run (Agent.java:163)
+    java.util.concurrent.ThreadPoolExecutor.runWorker (ThreadPoolExecutor.java:1149)
+    java.util.concurrent.ThreadPoolExecutor$Worker.run (ThreadPoolExecutor.java:624)
+    java.lang.Thread.run (Thread.java:748)
+
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.657 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/lineal/linear.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.759 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/lineal/linear.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.787 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/lineal/linear.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.627 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/lineal/linear.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[36m----  Compiler Warning on   src/cljc/lineal/linear.cljc   line:26  column:11  ----[0m
+
+  [1mWrong number of args (2) passed to clojure.string/replace[0m
+
+  [36m22[0m  [36m;;                              (map #(re-seq  #"\d+" %) items))][0m
+  [36m23[0m  [36m;;     (into [] (map (comp parse-int first) coefficients))))[0m
+  [36m24[0m  [36m[0m
+  [36m25[0m  [36m(defn text-to-row-vector [s][0m
+  [33m26[0m  [1m  (let [s (str/replace #"\s" "")[0m
+  [0m  [0m  [33m          ^--- Wrong number of args (2) passed to clojure.string/replace[0m
+  [36m27[0m  [36m        [left right] (map (fn [s] (re-seq #"([+-]?\d+)([a-zA-Z])?" s)) (str/split s #"="))[0m
+  [36m28[0m  [36m        ; neg right[0m
+  [36m29[0m  [36m        ][0m
+  [36m30[0m  [36m    [left right]))[0m
+
+[36m----  Compiler Warning : Please see src/cljc/lineal/linear.cljc  ----[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.75 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/lineal/linear.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.617 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/lineal/linear.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.638 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/lineal/linear.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[36m----  Compiler Warning on   src/cljc/lineal/linear.cljc   line:30  column:5  ----[0m
+
+  [1mWrong number of args (2) passed to cljs.core/vec[0m
+
+  [36m26[0m  [36m  (let [s (str/replace s #"\s" "")[0m
+  [36m27[0m  [36m        [left right] (vec (map (fn [s] (re-seq #"([+-]?\d+)([a-zA-Z])?" s)) (str/split s #"=")))[0m
+  [36m28[0m  [36m        ; neg right[0m
+  [36m29[0m  [36m        ][0m
+  [33m30[0m  [1m    (vec left right)))[0m
+  [0m  [0m  [33m    ^--- Wrong number of args (2) passed to cljs.core/vec[0m
+  [36m31[0m  [36m[0m
+  [36m32[0m  [36m(defn matrix? [M?][0m
+  [36m33[0m  [36m  (when (coll? (first M?)) M?))[0m
+  [36m34[0m  [36m[0m
+  [36m35[0m  [36m(defn single-column-matrix? [M][0m
+
+[36m----  Compiler Warning : Please see src/cljc/lineal/linear.cljc  ----[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.654 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/lineal/linear.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.583 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/lineal/linear.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.633 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/lineal/linear.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.681 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/lineal/linear.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.613 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/lineal/linear.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.62 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/lineal/linear.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.585 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/lineal/linear.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.617 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/lineal/linear.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.582 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/lineal/linear.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.677 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/lineal/linear.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.638 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/lineal/linear.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.626 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/lineal/linear.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.661 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/lineal/linear.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.621 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/lineal/linear.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.64 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/lineal/linear.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.609 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/lineal/linear.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.597 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/lineal/linear.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.583 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/lineal/linear.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.581 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/lineal/linear.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.59 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/lineal/linear.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.597 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/lineal/linear.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.579 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/lineal/linear.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.698 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/lineal/linear.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.667 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/lineal/linear.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.599 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/lineal/linear.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.564 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/lineal/linear.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.639 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/lineal/linear.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.611 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/lineal/linear.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.624 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/lineal/linear.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.666 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/lineal/linear.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.618 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/lineal/linear.js
