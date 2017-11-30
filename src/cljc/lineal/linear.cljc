@@ -39,36 +39,40 @@
   ([m kv-seq]
    (reduce map-adding m (seq kv-seq))))
 
+(defn clear-nil-subsets [coll]
+  (filter (complement #(every? empty? %)) coll))
+
 (defn parse-text-row [s]
-  (let [s (str/replace s #"\s" "")
+  (let [la-re-parser (fn [lare]
+                       (into [] (for [[_ sign coefficient variable] (clear-nil-subsets lare)]
+                                  (cond
+                                    (and (empty? variable)
+                                         coefficient)
+                                    [nil (parse-int (str sign coefficient))]
+
+                                    (and variable (empty? coefficient))
+                                    [variable 1]
+
+                                    :default [variable
+                                              (parse-int (str sign coefficient))]))))
+        s (str/replace s #"\s" "")
         [left right] (vec (map (fn [s] (re-seq #"([+-])?(\d+)?([a-zA-Z])?" s)) (str/split s #"=")))
-        left (into [] (for [s left] [(when-let [s2 (nth s 2)]
-                                       (parse-int s2))
-                                     (last s)]))
-        right (into [] (for [s right] [(when-let [s2 (nth s 2)]
-                                         (* -1 (parse-int s2)))
-                                       (last s)]))
+        left (la-re-parser left)
+        right (->> (la-re-parser right)
+                   (map (fn [[k v]] [k (* -1 v)])))
         full (into left right)
-        sanitized (map reverse (filter (complement #(every? nil? %)) full))
-        all-map (seq-add-to-map sanitized)]
+        all-map (seq-add-to-map full)]
     all-map))
 
 (defn text-to-row-vector [s]
-  (vec (map first (parse-text-row s))))
+  (vec (map second (sort (parse-text-row s)))))
 
 (defn system-of-strings-to-matrix [scoll]
-                                        ; first, to map of parse-text-row
-  (let [all-maps (into [] (for [s scoll]
-                            (into {} (for [[v k]
-                                           (parse-text-row s)] [k v]))))
-        all-map-keys (into #{} (flatten (map keys all-maps)))
-        rows (for [m all-maps k all-map-keys]
-               (get m k)
-               )]
-    rows
-    )
-                                        ; each string gets a map with var:val, then construct the matrix by considering the vars of each map
-)
+  (let [all-maps (map parse-text-row scoll)
+        all-map-keys (->> all-maps (map keys) flatten (into #{}) (into []) sort)]
+    (into []
+          (for [k all-map-keys]
+            (into [] (for [m all-maps] (get m k 0)))))))
 
 (defn matrix? [M?]
   (when (coll? (first M?)) M?))

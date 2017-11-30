@@ -18,6 +18,10 @@
              (m* (m* M N) V))))))
 
 (deftest text-to-matrix
-  (let [matrix [[3 5][4 9]]]
+  (let [s1 "3x +4z = c"
+        s2 "3x +4z = 3"
+        matrix [[3 5][4 9]]]
     (testing "A nicely spaced, well-formatted string"
-      (= [3 5] (text-to-row-vector "3x + 5y = 0")))))
+      (= [3 5] (text-to-row-vector "3x + 5y = 0")))
+    (testing "text-row with unscaled var"
+      (= [[3 4 1]] (text-to-row-vector s1)))))
