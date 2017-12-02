@@ -75,13 +75,15 @@
             (into [] (for [m all-maps] (get m k 0)))))))
 
 (defn matrix? [M?]
-  (when (coll? (first M?)) M?))
+  (every? vector? [M? (first M?)]))
 
 (defn single-column-matrix? [M]
   (and (matrix? M)
        (= 1 (count M))))
 
-(def is-vector? (complement matrix?))
+(defn is-vector?
+  [V?]
+  (and (vector? V?) (not (matrix? V?))))
 
 (defn matrix-to-vector
   "Convert a single-column matrix to a vector"
@@ -89,7 +91,7 @@
   (cond
     (single-column-matrix? M) (first M)
     (is-vector? M) M
-    :else (throw (clojure.core/ex-info "Unable to vectorize"
+    :else (throw (ex-info "Unable to vectorize"
                                        {:type :illegal-types
                                         :cause (str "Not a matrix: " M)}))))
 
@@ -108,7 +110,20 @@
     (for [rn (range num-rows)]
       (for [column m] (nth column rn)))))
 
-(defn vector-to-matrix [V] [V])
+(defn vector-to-matrix [v]
+  [v])
+
+(defn to-matrix
+  "If coll is not a matrix (vector of vectors), try to cast it to one."
+  [coll]
+  (cond
+    (number? coll) [[coll]]
+    (matrix? coll) coll
+    (is-vector? coll) (vector-to-matrix coll)
+    (coll? coll) (to-matrix (vec coll))
+    :default (throw (ex-info "Only valid collections can be converted to matrices."
+                     {:cause "Not valid coll"
+                      :input coll} ))))
 
 (defn m*
   "If A = (a_{ij}) is an m x n matrix and B = (b_{ij}) is an n*r matrix then the product AB = C = (c_{ij}) is the m x r matrix whose entries are defined by c_{ij} = a(i,:)b_j = the sum of all a_{ik}b_{kj} entries from k=1 to n."
@@ -120,7 +135,7 @@
         count-a-col (count (get-columns A))
         count-b-rows (count (get-rows B))]
     (if-not (= count-a-col count-b-rows)
-      (throw (clojure.core/ex-info "Illegal matrix dimensions" {:type :illegal-matrix-multiplication :cause (str "Trying to multiply a " count-a-col " colum nmatrix by a " count-b-rows " rows matrix.")}))
+      (throw (ex-info "Illegal matrix dimensions" {:type :illegal-matrix-multiplication :cause (str "Trying to multiply a " count-a-col " colum nmatrix by a " count-b-rows " rows matrix.")}))
       (for [column columns]
         (for [row rows]
           (apply +
@@ -132,9 +147,9 @@
   [V1 V2]
   (let [[V1 V2] (map #(if (single-column-matrix? %) (matrix-to-vector %) %) [V1 V2]) ]
     (when-not (every? is-vector? (list V1 V2))
-      (throw (clojure.core/ex-info "Wrong arg structure" {:type :illegal-types :cause (str "Trying to add non-vector with " V1 " + " V2)})))
+      (throw (ex-info "Wrong arg structure" {:type :illegal-types :cause (str "Trying to add non-vector with " V1 " + " V2)})))
     (when-not (= (count V1) (count V2))
-      (clojure.core/ex-info "Non-matching lengths of supplied vectors" {:type :invalid-input :cause (str "Length " (count V1) " is not " (count V2))}))
+      (ex-info "Non-matching lengths of supplied vectors" {:type :invalid-input :cause (str "Length " (count V1) " is not " (count V2))}))
 
     (for [[i v] (map-indexed vector V1)]
       (+ v (nth V2 i)))))

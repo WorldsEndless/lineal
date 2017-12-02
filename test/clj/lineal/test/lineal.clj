@@ -24,4 +24,14 @@
     (testing "A nicely spaced, well-formatted string"
       (= [3 5] (text-to-row-vector "3x + 5y = 0")))
     (testing "text-row with unscaled var"
-      (= [[3 4 1]] (text-to-row-vector s1)))))
+      (= [3 4 1] (text-to-row-vector s1)))))
+
+(deftest linearity
+  (testing "Linear function (denton pg 37)"
+    (let [f [[3 5][4 9]]
+          x [1 2 3 4]
+          y [2 4 6 8]
+          x-plus-y (v+ x y)
+          fxy (v+ (m* f x) (m* f y)) ; these are single-col matrices, not vectors
+          fxy2 (m* x-plus-y)]
+      (is (= fxy fxy2)))))
