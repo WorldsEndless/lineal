@@ -7,6 +7,12 @@ You will need [Leiningen][1] 2.0 or above installed.
 
 [1]: https://github.com/technomancy/leiningen
 
+** Disclaimer, Alternatives
+Lineal is essentially just my notes as I master linear algebra; it is NOT intended as a workhouse library. If you want industrial or research-strength Clojure tools for linear algebra, try other libraries:
+
+- [[https://github.com/uncomplicate/neanderthal][Neanderthal]] (highly optimized use of GPUs for linear algebra calculations)
+- [[https://github.com/mikera/core.matrix][core.matrix]] Relatively lightweight yet sound matrix calculations, to be included in Clojure core.
+
 ** Running
 
 To start a web server for the application, run:
