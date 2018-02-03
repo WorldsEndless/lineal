@@ -163,3 +163,51 @@
 (defn matrix-swap [M from to]
   (let [orig-to (M to)]
     (-> M (assoc to (M from)) (assoc from orig-to))))
+
+(defrecord Complex [^double real ^double imag]) ;(Complex. 3 5)
+
+(defn associative-operation?
+  "Given a poly-variadic function and collection of two or more items, determine whether the function is associative.
+  
+  Associativity: Changing the order in which you apply a particular associative operators DOES NOT change the result. That is, rearranging the parentheses in such an expression will not change its value. "
+
+  ;; Part of the technical operatoin of this is in going from infix to prefix notation
+  ;; TODO This is slightly fragile due to taking only two of the collection
+  [function collection]
+  (when (> 2 (count collection))
+    (throw (ex-info "Too few items in `collection` provided to `associative-operation?`" {:collection collection})))
+  ;; (= (function (first collection) (second collection))
+  ;;    (function (function (first collection)) (function (second collection))))
+  (= (apply function collection)
+     (apply function (list (apply function (take 2 collection)) (apply function (drop 2 collection)))))
+  )
+
+(defn commutative-operation?
+  "Given a function and a collection of two or more items, determine whether the function is commutative"
+  [function collection]
+  
+  )
+
+
+(defn distributive-operation?
+  "Given a function and a collection of two or more items, determine whether the function is distributive"
+  [function collection]
+  
+  )
+
+
+(defn vector-space?
+  "Determine whether the input collection qualifies as a vector space"
+  [space & [{:keys [vector-addition-function scalar-multiplication-function]
+             :or {vector-addition-function v+
+                  scalar-multiplication-function m*}}]]
+  (and (associative-operation? vector-addition-function (take 2 space))
+       (commutative-operation? vector-addition-function (take 2 space))
+       (distributive-operation?  ))
+  
+  ;; contains vectors
+  ;; vector addition operation
+  ;; scalar multiplication operation
+  ;; has zero vector
+  ;; normalizaton conditions 0x = 0, 1x = x
+  )

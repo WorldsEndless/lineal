@@ -27,7 +27,7 @@
       (= [3 4 1] (text-to-row-vector s1)))))
 
 (deftest linearity
-  (testing "Linear function (denton pg 37)"
+  (testing "Linear function (Denton pg 37)"
     (let [f [[3 5][4 9]]
           x [1 2 3 4]
           y [2 4 6 8]
@@ -35,3 +35,11 @@
           fxy (v+ (m* f x) (m* f y)) ; these are single-col matrices, not vectors
           fxy2 (m* x-plus-y)]
       (is (= fxy fxy2)))))
+
+(deftest associativity
+  (testing "Basic Associativity"
+    (let [int-col (take 10 (filter pos? (repeatedly #(rand-int 100)))) ]
+      (is (not (associative-operation? - int-col)))
+      (is (associative-operation? + int-col))
+      (is (associative-operation? * int-col))
+      (is (not (associative-operation? / int-col))))))
