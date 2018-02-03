@@ -43,3 +43,26 @@
       (is (associative-operation? + int-col))
       (is (associative-operation? * int-col))
       (is (not (associative-operation? / int-col))))))
+
+(deftest commutativity
+  (testing "Basic Commutativity"
+    (let [int-col (take 2 (filter pos? (repeatedly #(rand-int 100)))) ]
+      (is (not (commutative-operation? - int-col)))
+      (is (commutative-operation? + int-col))
+      (is (commutative-operation? * int-col))
+      (is (not (commutative-operation? / int-col))))))
+
+(deftest distributivity
+  (testing "Basic Distributivity"
+    (let [int-col (take 3 (filter pos? (repeatedly #(rand-int 100)))) ]
+      (testing "There is never distributivity where subtraction is involved"
+        (is (not (distributive-operation? + - int-col)))
+        (is (not (distributive-operation? - + int-col))))
+      (testing "Addition does not distribute over multiplication"
+        (is (not (distributive-operation? + * int-col))))
+      (testing "Multiplication does, however, distribute over addition"
+        (is (distributive-operation? * + int-col)))
+      (testing "Neither should there be distributivity where division is involved"
+        (is (not (distributive-operation? / + int-col)))
+        (is (not (distributive-operation? + / int-col)))))))
+

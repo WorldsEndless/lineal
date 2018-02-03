@@ -169,31 +169,45 @@
 (defn associative-operation?
   "Given a poly-variadic function and collection of two or more items, determine whether the function is associative.
   
-  Associativity: Changing the order in which you apply a particular associative operators DOES NOT change the result. That is, rearranging the parentheses in such an expression will not change its value. "
+  Associativity: Changing the order in which you apply a particular associative operators DOES NOT change the result. That is, rearranging the parentheses in such an expression will not change its value.
 
-  ;; Part of the technical operatoin of this is in going from infix to prefix notation
-  ;; TODO This is slightly fragile due to taking only two of the collection
+  https://en.wikipedia.org/wiki/Associative_property"
+
+  ;; Part of the logical challenge of this operation is in going from infix to prefix notation
   [function collection]
-  (when (> 2 (count collection))
+  (when (> 3 (count collection))
     (throw (ex-info "Too few items in `collection` provided to `associative-operation?`" {:collection collection})))
   ;; (= (function (first collection) (second collection))
   ;;    (function (function (first collection)) (function (second collection))))
   (= (apply function collection)
-     (apply function (list (apply function (take 2 collection)) (apply function (drop 2 collection)))))
-  )
+     (apply function (list (apply function (take 2 collection)) (apply function (drop 2 collection))))))
 
 (defn commutative-operation?
-  "Given a function and a collection of two or more items, determine whether the function is commutative"
-  [function collection]
-  
-  )
+  "Given a function and a collection of two items, determine whether the function is commutative.
+
+  Changing the order in which operands are sequenced through a commutative binary function DOES NOT change the result.  \"3 + 4 = 4 + 3\" or \"2 × 5 = 5 × 2\"
+
+  https://en.wikipedia.org/wiki/Commutative_property"
+  [function [c1 c2 :as  collection]]
+  (when (not= 2 (count collection))
+    (throw (ex-info " Commutativity refers to binary operations. More than two items provided to `commutative-operation?`" {:collection collection})))
+  (= (function c1 c2)
+     (function c2 c1)))
 
 
 (defn distributive-operation?
-  "Given a function and a collection of two or more items, determine whether the function is distributive"
-  [function collection]
-  
-  )
+  "Given a pair of two-variadic functions and a collection of three values, determine whether the function is distributive.
+
+   To multiply a sum (or difference) by a factor, each summand (or minuend and subtrahend) is multiplied by this factor and the resulting products are added (or subtracted).
+
+  Example: 2 ⋅ (1 + 3) = (2 ⋅ 1) + (2 ⋅ 3), but 2 / (1 + 3) ≠ (2 / 1) + (2 / 3).
+
+  https://en.wikipedia.org/wiki/Distributive_property"
+  [outer-function inner-function [c1 c2 c3 :as  collection]]
+  (when (not= 3 (count collection))
+    (throw (ex-info "Distributivity refers to pairs of binary operations. More than three items provided to `commutative-operation?`" {:collection collection})))
+  (= (outer-function c1 (inner-function  c2 c3))
+     (inner-function (outer-function c1 c2) (outer-function c1 c3))))
 
 
 (defn vector-space?
