@@ -1,6 +1,7 @@
 (ns lineal.linear
   (:require
-   [clojure.string :as str]))
+   [clojure.string :as str]
+   [lineal.numbers :as num]))
 
 ;; Vectors will be considered to be column vectors, meaning that what is written in clojure as [a b c] will be equivalent to the mathematic writing of it vertically (stacked)
 ;; Matrixes will be considered to be sequences of vectors. With this notion, "rows" are the more difficult part of a matrix to obtain, as columns are equivalent to a vector
@@ -157,14 +158,11 @@
 (defn scale
   "Scale a vector"
   [vec scalar]
-  (into (empty vec)
-        (for [v vec] (* v scalar))))
+  (into [] (for [v vec] (* v scalar))))
 
 (defn matrix-swap [M from to]
   (let [orig-to (M to)]
     (-> M (assoc to (M from)) (assoc from orig-to))))
-
-(defrecord Complex [^double real ^double imag]) ;(Complex. 3 5)
 
 (defn associative-operation?
   "Given a poly-variadic function and collection of two or more items, determine whether the function is associative.
@@ -210,18 +208,73 @@
      (inner-function (outer-function c1 c2) (outer-function c1 c3))))
 
 
+(defn zero-vector?
+  "Determine if the given vector is a 0 vector, or if the first 1000 components are 0.
+  Zero vectors can have any number of 0s, but will have nothing else."
+  [v]
+  (every? #(= 0 %) (take 1000 v)))
+
+(defn has-zero-vector?
+  "The space has a zero vector `z` such that every vector `v` in the space has (= `v` (+ `v` `z`))"
+  [vector-space]
+  (let [zv (:zero-vector (meta vector-space))
+        v+ (:vector-addition-function (meta vector-space))
+        sample-v (rand-nth vector-space)]
+    (when (and zv m*)
+      (and
+       (zero-vector? zv)
+       (= sample-v (v+ zv sample-v))))))
+
+(defn Zero-Vector
+  "Produces a zero vector of size `n`, or of size matching input count"
+  [n-or-count]
+  (let [n (cond
+            (and (integer? n-or-count)
+                 (pos? n-or-count))
+            n-or-count
+            
+            (sequential? n-or-count) (count n-or-count)
+            
+            :else (throw (ex-info (str "Invalid arg to `Zero-Vector`: " n-or-count)
+                                  {:arg n-or-count})))]
+    (vec (repeat n 0))))
+
+;(Zero-Vector 0)
+
+(defn Vector-Space
+  "Create a vector spacegiven a function or collection"
+  [content & [{:keys [zero-vector
+                      vector-addition-function
+                      vector-scale-function]
+               :or {zero-vector (Zero-Vector (first content))
+                    vector-addition-function v+
+                    vector-scale-function scale}}]]
+  (if (sequential? content)
+    (with-meta content {:zero-vector zero-vector
+                        :add vector-addition-function
+                        :mult vector-scale-function})
+    (throw (ex-info "Invalid `content` for Vector-Space" {:content-type (type content)} :invalid-type))))
+
+(defn fulfills-normalization-conditions?
+  "Space conforms to normalization conditions: scaling components by 0 results in zero-vector, scaling by 1 is x."
+  [vector-space] ;(def vector-space lineal.test.lineal/V)
+  (let [{:keys [zero-vector mult]} (meta vector-space) ;{:zero-vector [0 0], :add #function[lineal.linear/v+], :mult #function[lineal.linear/scale]} (def mult scale)
+
+        v (rand-nth vector-space)] ;(def v (rand-nth vector-space))
+    (and (= zero-vector (mult v 0))
+         (= v (mult v 1)))))
+
+
 (defn vector-space?
   "Determine whether the input collection qualifies as a vector space"
-  [space & [{:keys [vector-addition-function scalar-multiplication-function]
-             :or {vector-addition-function v+
-                  scalar-multiplication-function m*}}]]
-  (and (associative-operation? vector-addition-function (take 2 space))
-       (commutative-operation? vector-addition-function (take 2 space))
-       (distributive-operation?  ))
-  
-  ;; contains vectors
-  ;; vector addition operation
-  ;; scalar multiplication operation
-  ;; has zero vector
-  ;; normalizaton conditions 0x = 0, 1x = x
-  )
+  [space]
+  (let [{:keys [add mult]} (meta space)
+        space (if (and add mult)
+                space
+                (Vector-Space space))]
+    (and (associative-operation? add (take 2 space))
+         (commutative-operation? add (take 2 space))
+         (associative-operation? mult (take 2 space))
+         (distributive-operation? mult add (take 3 space))
+         (has-zero-vector? space)
+         (fulfills-normalization-conditions? space))))

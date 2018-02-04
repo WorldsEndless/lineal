@@ -2,6 +2,15 @@
   (:require [clojure.test :refer :all]
             [lineal.linear :refer :all]))
 
+(defn random-vector-space
+  "Generate a random vector"
+  []
+  (let [int-pool (range -100 100)
+        space-dimensionality (inc (rand-int 4))]
+    (Vector-Space
+     (repeatedly space-dimensionality #(repeatedly space-dimensionality (fn [] (rand-nth int-pool)))))))
+
+
 (deftest Denton-chapter-1
   (testing "Reading 1: Commutative vector addition"
     (let [M [[1 3 5] [4 6 8] [2 8 16]]
@@ -66,3 +75,33 @@
         (is (not (distributive-operation? / + int-col)))
         (is (not (distributive-operation? + / int-col)))))))
 
+(deftest zero-vec
+  (testing "Zero-Vector creation"
+    (are [x] (zero-vector? x)
+      (Zero-Vector 1)
+      (Zero-Vector 33)
+      (Zero-Vector [1 2 3]))
+    (testing "Invalid to Zero-Vector"
+      (is
+       (try
+         (not (zero-vector? (Zero-Vector -3)))
+         (catch Exception e true)))))
+  (testing "zero-vector?"
+    (let [zv (vec (repeat (rand-int 20) 0))]
+      (is (zero-vector? zv))
+      (is (not (zero-vector? (conj zv 1)))))))
+
+
+(deftest normalization
+  (let [V (random-vector-space)] ;(def V (random-vector-space))
+    (is (fulfills-normalization-conditions? V))
+    (is (not (fulfills-normalization-conditions?
+              (with-meta V (merge (meta V) {:zero-vector nil})))))
+    (is (not (fulfills-normalization-conditions?
+              (with-meta V (merge (meta V) {:zero-vector [9]})))))))
+
+(deftest infinite-vectorspaces
+  (let [infinite-vector (range)]
+    (testing "Creating a vectorspace around infinite vectors"
+      (is false)
+      )))

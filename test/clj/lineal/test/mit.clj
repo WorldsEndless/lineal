@@ -1,16 +1,17 @@
 (ns lineal.test.mit
   "Tests that accord with the MIT Opencourseware MIT6.241"
   (:require [clojure.test :refer :all]
-            [lineal.linear :refer :all]))
+            [lineal.linear :refer :all]
+            [lineal.numbers :as numbers]
+            [clojure.spec.alpha :as s]
+            [clojure.spec.gen.alpha :as gen]))
 
-(deftest "Chapter 1"
-  
-  )
+;(gen/sample (s/gen :lineal.numbers/complex-number))
 
 (deftest MIT-chapter-1
   (testing "Vector Spaces"
-    (let [REALS [1 100 -35 0.5 -24 (/ 1000 34.9)]
-          COMPLEX [(Complex. 3 0) (Complex. 100 3) (Complex. -3 25)]
+    (let [REALS (Vector-Space [(gen/sample (s/gen :lineal.numbers/real))])
+          COMPLEX (Vector-Space [(gen/sample (s/gen :lineal.numbers/complex))])
           real-continuous-functions nil
           MxN-set nil
           solution-set nil ; y^{1}(t) + 3y(t) = 0
