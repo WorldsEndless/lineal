@@ -163,7 +163,7 @@
 (defn scale
   "Scale a vector"
   [vec scalar]
-  (into [] (for [v vec] (* v scalar))))
+  (for [v vec] (* v scalar)))
 
 (defn matrix-swap [M from to]
   (let [orig-to (M to)]
@@ -172,7 +172,7 @@
 (defn associative-operation?
   "Given a poly-variadic function and collection of two or more items, determine whether the function is associative.
   
-  Associativity: Changing the order in which you apply a particular associative operators DOES NOT change the result. That is, rearranging the parentheses in such an expression will not change its value.
+  Associativity: Changing the order in which you apply a particular associative operators DOES NOT change the result. That is, rearranging the parentheses in such an expression will not change its value. E.g. \"3+(5+2) = (3+5) + 2\""  
 
   https://en.wikipedia.org/wiki/Associative_property"
 
@@ -306,14 +306,21 @@
 
 (defn vector-space?
   "Determine whether the input collection qualifies as a vector space"
-  [space] ;(def space lineal.test.mit/R3) (def add (:add (meta space)))
+  [space] ;(def space lineal.test.mit/R3) (def add (:add (meta space))) (def mult (:mult (meta space)))
   (let [{:keys [add mult]} (meta space)
         space (if (and add mult)
                 space
                 (Vector-Space space))]
-    (and (associative-operation? add (take 3 space)) 
-         (commutative-operation? add (take 2 space))
-         (associative-operation? mult (take 2 space))
-         (distributive-operation? mult add (take 3 space))
-         (has-zero-vector? space)
+    (and (associative-operation? add (take 3 space)) ;; additive associativity
+         (commutative-operation? add (take 2 space)) ;; additive commutativity
+         ;; additive closure
+         (associative-operation? mult (take 3 space)) ;; this fails; what do you think it means to have associative scalar multiplication?
+         (distributive-operation? mult add (take 3 space))          ;; multiplicative distributivity over addition of vectors
+         (has-zero-vector? space) ;; zero
+         ;; TODO Additive Inverse (subtraction)
+         ;; TODO Multiplicative closure
+         ;; TODO Multiplicative distributivity over scalar addition
+         ;; TODO Associativity of scalar with vector multiplication (cd)*V = c(d*V)
+         ;; TODO Multiplicative Unity (identity)
+         
          (fulfills-normalization-conditions? space))))
