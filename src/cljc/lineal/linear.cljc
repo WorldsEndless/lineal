@@ -76,7 +76,7 @@
             (into [] (for [m all-maps] (get m k 0)))))))
 
 (defn matrix? [M?]
-  (every? vector? [M? (first M?)]))
+  (every? sequential? [M? (first M?)]))
 
 (defn single-column-matrix? [M]
   (and (matrix? M)
@@ -84,7 +84,7 @@
 
 (defn is-vector?
   [V?]
-  (and (vector? V?) (not (matrix? V?))))
+  (and (sequential? V?) (not (matrix? V?))))
 
 (defn matrix-to-vector
   "Convert a single-column matrix to a vector"
@@ -145,15 +145,20 @@
                      (* corresponding-item row-item)))))))))
 
 (defn v+
-  [V1 V2]
-  (let [[V1 V2] (map #(if (single-column-matrix? %) (matrix-to-vector %) %) [V1 V2]) ]
-    (when-not (every? is-vector? (list V1 V2))
-      (throw (ex-info "Wrong arg structure" {:type :illegal-types :cause (str "Trying to add non-vector with " V1 " + " V2)})))
-    (when-not (= (count V1) (count V2))
-      (ex-info "Non-matching lengths of supplied vectors" {:type :invalid-input :cause (str "Length " (count V1) " is not " (count V2))}))
+  "Vector addition"
+  ([] nil)
+  ([V] V)
+  ([V1 V2]
+   (let [[V1 V2] (map #(if (single-column-matrix? %) (matrix-to-vector %) %) [V1 V2]) ]
+     (when-not (every? is-vector? (list V1 V2))
+       (throw (ex-info "Wrong arg structure" {:type :illegal-types :cause (str "Trying to add non-vector with " V1 " + " V2)})))
+     (when-not (= (count V1) (count V2))
+       (ex-info "Non-matching lengths of supplied vectors" {:type :invalid-input :cause (str "Length " (count V1) " is not " (count V2))}))
 
-    (for [[i v] (map-indexed vector V1)]
-      (+ v (nth V2 i)))))
+     (for [[i v] (map-indexed vector V1)]
+       (+ v (nth V2 i)))))
+  ([V1 V2 & rest]
+   (reduce v+ (v+ V1 V2) rest)))
 
 (defn scale
   "Scale a vector"
@@ -238,22 +243,56 @@
             :else (throw (ex-info (str "Invalid arg to `Zero-Vector`: " n-or-count)
                                   {:arg n-or-count})))]
     (vec (repeat n 0))))
+;(first content)
+;(Zero-Vector 2)
+;(Zero-Vector content)
 
-;(Zero-Vector 0)
-
-(defn Vector-Space
-  "Create a vector spacegiven a function or collection"
-  [content & [{:keys [zero-vector
-                      vector-addition-function
-                      vector-scale-function]
-               :or {zero-vector (Zero-Vector (first content))
-                    vector-addition-function v+
-                    vector-scale-function scale}}]]
+(defmulti Vector-Space ;; This is a multimethod because it needs to be poly-variadic yet still sensitive to the first value
+  "Create a vector space given a function or (possibly lazy) flat collection.
+  Given `n`, internal vectors will be `n` length from the given lazy seq.
+  Default `n` is 2. 
+  
+  E.g. the R^3 space would be `(Vector-Space 3 REAL-NUMBERS)`"
+  (fn [n-or-content content-or-args & argmap] (type n-or-content)))
+;(ns-unmap *ns* 'Vector-Space)
+(defmethod Vector-Space (type 111)
+  [n content & [{:keys [zero-vector ;(def content2 num/REAL-NUMBERS)
+                        vector-addition-function
+                        vector-scale-function]
+                 :or {zero-vector nil
+                      vector-addition-function v+
+                      vector-scale-function scale}}]]
   (if (sequential? content)
-    (with-meta content {:zero-vector zero-vector
-                        :add vector-addition-function
-                        :mult vector-scale-function})
+    (let [content (map vec (partition n content))] ;(def content (map vec (partition 3 content))) (take 2 content)
+      (with-meta content {:zero-vector (or zero-vector (Zero-Vector (first content)))
+                  :add vector-addition-function
+                  :mult vector-scale-function}))
     (throw (ex-info "Invalid `content` for Vector-Space" {:content-type (type content)} :invalid-type))))
+
+(defmethod Vector-Space :default ;(type num/REAL-NUMBERS) ;; lazy stuff
+  [content & [argmap]]
+  (Vector-Space 2 content argmap))
+
+                                        ;(def v (Vector-Space 2 [1 2 3]))
+
+;; (defn Vector-Space
+;;   "Create a vector space given a function or (possibly lazy) flat collection.
+;;   Given `n`, internal vectors will be `n` length from the given lazy seq.
+;;   Default `n` is 2. 
+;;   l
+;;   E.g. the R^3 space would be `(Vector-Space 3 REAL-NUMBERS)`"
+;;   ([content & [argmap]] (Vector-Space 2 content argmap))
+;;   ([n content & [{:keys [zero-vector
+;;                        vector-addition-function
+;;                        vector-scale-function]
+;;                 :or {zero-vector (Zero-Vector (first content))
+;;                      vector-addition-function v+
+;;                      vector-scale-function scale}}]]
+;;    (if (sequential? content)
+;;      (with-meta (map vec (partition n content)) {:zero-vector zero-vector
+;;                          :add vector-addition-function
+;;                          :mult vector-scale-function})
+;;      (throw (ex-info "Invalid `content` for Vector-Space" {:content-type (type content)} :invalid-type)))))
 
 (defn fulfills-normalization-conditions?
   "Space conforms to normalization conditions: scaling components by 0 results in zero-vector, scaling by 1 is x."
@@ -267,12 +306,12 @@
 
 (defn vector-space?
   "Determine whether the input collection qualifies as a vector space"
-  [space]
+  [space] ;(def space lineal.test.mit/R3) (def add (:add (meta space)))
   (let [{:keys [add mult]} (meta space)
         space (if (and add mult)
                 space
                 (Vector-Space space))]
-    (and (associative-operation? add (take 2 space))
+    (and (associative-operation? add (take 3 space)) 
          (commutative-operation? add (take 2 space))
          (associative-operation? mult (take 2 space))
          (distributive-operation? mult add (take 3 space))
