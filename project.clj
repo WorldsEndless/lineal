@@ -30,6 +30,7 @@
                  [secretary "1.2.3"]
                  [selmer "1.11.1"]
                  [garden "1.3.2"]
+                 [org.clojure/math.numeric-tower "0.0.4"]
                  ; [complex "0.1.11"] ; java strong implementation for complex numbers re: Apache
                  [garden-gnome "0.1.0"]]
 

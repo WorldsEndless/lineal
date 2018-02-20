@@ -43,37 +43,7 @@
 (defn clear-nil-subsets [coll]
   (filter (complement #(every? empty? %)) coll))
 
-(defn parse-text-row [s]
-  (let [la-re-parser (fn [lare]
-                       (into [] (for [[_ sign coefficient variable] (clear-nil-subsets lare)]
-                                  (cond
-                                    (and (empty? variable)
-                                         coefficient)
-                                    [nil (parse-int (str sign coefficient))]
 
-                                    (and variable (empty? coefficient))
-                                    [variable 1]
-
-                                    :default [variable
-                                              (parse-int (str sign coefficient))]))))
-        s (str/replace s #"\s" "")
-        [left right] (vec (map (fn [s] (re-seq #"([+-])?(\d+)?([a-zA-Z])?" s)) (str/split s #"=")))
-        left (la-re-parser left)
-        right (->> (la-re-parser right)
-                   (map (fn [[k v]] [k (* -1 v)])))
-        full (into left right)
-        all-map (seq-add-to-map full)]
-    all-map))
-
-(defn text-to-row-vector [s]
-  (vec (map second (sort (parse-text-row s)))))
-
-(defn system-of-strings-to-matrix [scoll]
-  (let [all-maps (map parse-text-row scoll)
-        all-map-keys (->> all-maps (map keys) flatten (into #{}) (into []) sort)]
-    (into []
-          (for [k all-map-keys]
-            (into [] (for [m all-maps] (get m k 0)))))))
 
 (defn matrix? [M?]
   (every? sequential? [M? (first M?)]))
@@ -93,8 +63,8 @@
     (single-column-matrix? M) (first M)
     (is-vector? M) M
     :else (throw (ex-info "Unable to vectorize"
-                                       {:type :illegal-types
-                                        :cause (str "Not a matrix: " M)}))))
+                          {:type :illegal-types
+                           :cause (str "Not a matrix: " M)}))))
 
 (defn count-columns [m]
   (count m))
@@ -123,8 +93,8 @@
     (is-vector? coll) (vector-to-matrix coll)
     (coll? coll) (to-matrix (vec coll))
     :default (throw (ex-info "Only valid collections can be converted to matrices."
-                     {:cause "Not valid coll"
-                      :input coll} ))))
+                             {:cause "Not valid coll"
+                              :input coll} ))))
 
 (defn m*
   "If A = (a_{ij}) is an m x n matrix and B = (b_{ij}) is an n*r matrix then the product AB = C = (c_{ij}) is the m x r matrix whose entries are defined by c_{ij} = a(i,:)b_j = the sum of all a_{ik}b_{kj} entries from k=1 to n."
@@ -169,67 +139,6 @@
   (let [orig-to (M to)]
     (-> M (assoc to (M from)) (assoc from orig-to))))
 
-(defn associative-operation?
-  "Given a poly-variadic function and collection of two or more items, determine whether the function is associative.
-  
-  Associativity: Changing the order in which you apply a particular associative operators DOES NOT change the result. That is, rearranging the parentheses in such an expression will not change its value. E.g. \"3+(5+2) = (3+5) + 2\""  
-
-  https://en.wikipedia.org/wiki/Associative_property"
-
-  ;; Part of the logical challenge of this operation is in going from infix to prefix notation
-  [function collection]
-  (when (> 3 (count collection))
-    (throw (ex-info "Too few items in `collection` provided to `associative-operation?`" {:collection collection})))
-  ;; (= (function (first collection) (second collection))
-  ;;    (function (function (first collection)) (function (second collection))))
-  (= (apply function collection)
-     (apply function (list (apply function (take 2 collection)) (apply function (drop 2 collection))))))
-
-(defn commutative-operation?
-  "Given a function and a collection of two items, determine whether the function is commutative.
-
-  Changing the order in which operands are sequenced through a commutative binary function DOES NOT change the result.  \"3 + 4 = 4 + 3\" or \"2 × 5 = 5 × 2\"
-
-  https://en.wikipedia.org/wiki/Commutative_property"
-  [function [c1 c2 :as  collection]]
-  (when (not= 2 (count collection))
-    (throw (ex-info " Commutativity refers to binary operations. More than two items provided to `commutative-operation?`" {:collection collection})))
-  (= (function c1 c2)
-     (function c2 c1)))
-
-
-(defn distributive-operation?
-  "Given a pair of two-variadic functions and a collection of three values, determine whether the function is distributive.
-
-   To multiply a sum (or difference) by a factor, each summand (or minuend and subtrahend) is multiplied by this factor and the resulting products are added (or subtracted).
-
-  Example: 2 ⋅ (1 + 3) = (2 ⋅ 1) + (2 ⋅ 3), but 2 / (1 + 3) ≠ (2 / 1) + (2 / 3).
-
-  https://en.wikipedia.org/wiki/Distributive_property"
-  [outer-function inner-function [c1 c2 c3 :as  collection]]
-  (when (not= 3 (count collection))
-    (throw (ex-info "Distributivity refers to pairs of binary operations. More than three items provided to `commutative-operation?`" {:collection collection})))
-  (= (outer-function c1 (inner-function  c2 c3))
-     (inner-function (outer-function c1 c2) (outer-function c1 c3))))
-
-
-(defn zero-vector?
-  "Determine if the given vector is a 0 vector, or if the first 1000 components are 0.
-  Zero vectors can have any number of 0s, but will have nothing else."
-  [v]
-  (every? #(= 0 %) (take 1000 v)))
-
-(defn has-zero-vector?
-  "The space has a zero vector `z` such that every vector `v` in the space has (= `v` (+ `v` `z`))"
-  [vector-space]
-  (let [zv (:zero-vector (meta vector-space))
-        v+ (:vector-addition-function (meta vector-space))
-        sample-v (rand-nth vector-space)]
-    (when (and zv m*)
-      (and
-       (zero-vector? zv)
-       (= sample-v (v+ zv sample-v))))))
-
 (defn Zero-Vector
   "Produces a zero vector of size `n`, or of size matching input count"
   [n-or-count]
@@ -243,9 +152,9 @@
             :else (throw (ex-info (str "Invalid arg to `Zero-Vector`: " n-or-count)
                                   {:arg n-or-count})))]
     (vec (repeat n 0))))
-;(first content)
-;(Zero-Vector 2)
-;(Zero-Vector content)
+                                        ;(first content)
+                                        ;(Zero-Vector 2)
+                                        ;(Zero-Vector content)
 
 (defmulti Vector-Space ;; This is a multimethod because it needs to be poly-variadic yet still sensitive to the first value
   "Create a vector space given a function or (possibly lazy) flat collection.
@@ -254,7 +163,7 @@
   
   E.g. the R^3 space would be `(Vector-Space 3 REAL-NUMBERS)`"
   (fn [n-or-content content-or-args & argmap] (type n-or-content)))
-;(ns-unmap *ns* 'Vector-Space)
+                                        ;(ns-unmap *ns* 'Vector-Space)
 (defmethod Vector-Space (type 111)
   [n content & [{:keys [zero-vector ;(def content2 num/REAL-NUMBERS)
                         vector-addition-function
@@ -265,62 +174,10 @@
   (if (sequential? content)
     (let [content (map vec (partition n content))] ;(def content (map vec (partition 3 content))) (take 2 content)
       (with-meta content {:zero-vector (or zero-vector (Zero-Vector (first content)))
-                  :add vector-addition-function
-                  :mult vector-scale-function}))
+                          :add vector-addition-function
+                          :mult vector-scale-function}))
     (throw (ex-info "Invalid `content` for Vector-Space" {:content-type (type content)} :invalid-type))))
 
 (defmethod Vector-Space :default ;(type num/REAL-NUMBERS) ;; lazy stuff
   [content & [argmap]]
   (Vector-Space 2 content argmap))
-
-                                        ;(def v (Vector-Space 2 [1 2 3]))
-
-;; (defn Vector-Space
-;;   "Create a vector space given a function or (possibly lazy) flat collection.
-;;   Given `n`, internal vectors will be `n` length from the given lazy seq.
-;;   Default `n` is 2. 
-;;   l
-;;   E.g. the R^3 space would be `(Vector-Space 3 REAL-NUMBERS)`"
-;;   ([content & [argmap]] (Vector-Space 2 content argmap))
-;;   ([n content & [{:keys [zero-vector
-;;                        vector-addition-function
-;;                        vector-scale-function]
-;;                 :or {zero-vector (Zero-Vector (first content))
-;;                      vector-addition-function v+
-;;                      vector-scale-function scale}}]]
-;;    (if (sequential? content)
-;;      (with-meta (map vec (partition n content)) {:zero-vector zero-vector
-;;                          :add vector-addition-function
-;;                          :mult vector-scale-function})
-;;      (throw (ex-info "Invalid `content` for Vector-Space" {:content-type (type content)} :invalid-type)))))
-
-(defn fulfills-normalization-conditions?
-  "Space conforms to normalization conditions: scaling components by 0 results in zero-vector, scaling by 1 is x."
-  [vector-space] ;(def vector-space lineal.test.lineal/V)
-  (let [{:keys [zero-vector mult]} (meta vector-space) ;{:zero-vector [0 0], :add #function[lineal.linear/v+], :mult #function[lineal.linear/scale]} (def mult scale)
-
-        v (rand-nth vector-space)] ;(def v (rand-nth vector-space))
-    (and (= zero-vector (mult v 0))
-         (= v (mult v 1)))))
-
-
-(defn vector-space?
-  "Determine whether the input collection qualifies as a vector space"
-  [space] ;(def space lineal.test.mit/R3) (def add (:add (meta space))) (def mult (:mult (meta space)))
-  (let [{:keys [add mult]} (meta space)
-        space (if (and add mult)
-                space
-                (Vector-Space space))]
-    (and (associative-operation? add (take 3 space)) ;; additive associativity
-         (commutative-operation? add (take 2 space)) ;; additive commutativity
-         ;; additive closure
-         (associative-operation? mult (take 3 space)) ;; this fails; what do you think it means to have associative scalar multiplication?
-         (distributive-operation? mult add (take 3 space))          ;; multiplicative distributivity over addition of vectors
-         (has-zero-vector? space) ;; zero
-         ;; TODO Additive Inverse (subtraction)
-         ;; TODO Multiplicative closure
-         ;; TODO Multiplicative distributivity over scalar addition
-         ;; TODO Associativity of scalar with vector multiplication (cd)*V = c(d*V)
-         ;; TODO Multiplicative Unity (identity)
-         
-         (fulfills-normalization-conditions? space))))
