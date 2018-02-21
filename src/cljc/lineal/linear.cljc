@@ -8,8 +8,7 @@
 
 (defn sanitize [s] ;TODO: ensure space separation and alphabetical ordering of items
   ;; ensure [+ -] are space-separated
-  s
-  )
+  s)
 
 (def parse-int
   #?(:cljs (fn [s] (js/parseInt s))
@@ -130,6 +129,27 @@
   ([V1 V2 & rest]
    (reduce v+ (v+ V1 V2) rest)))
 
+(defn v*
+  "Multiply a vector point-wise against another"
+  [v1 v2]
+  (cond
+    (and (if (instance? clojure.lang.IPending v1)
+           (realized? v1)
+           true)
+         (if (instance? clojure.lang.IPending v2)
+           (realized? v2)
+           true)
+         (not= (count v1) (count v2)))
+    (throw (ex-info "non-matching vectors given to v*" {:args {:v1 v1 :v2 v2}}))
+    
+    :else
+    (let [interleaved (interleave v1 v2)]
+      (map #(apply * %) (partition 2 interleaved)))))
+
+(defn dot-product
+  "Take the dot-product (Euclidean product) between `v1` and `v2`"
+  [v1 v2] (apply + (v* v1 v2)))
+                                        
 (defn scale
   "Scale a vector"
   [vec scalar]
@@ -181,3 +201,18 @@
 (defmethod Vector-Space :default ;(type num/REAL-NUMBERS) ;; lazy stuff
   [content & [argmap]]
   (Vector-Space 2 content argmap))
+
+(defn linearize
+  "Linearize a system"
+  [system]
+  (let [equilibrium-point nil]
+    ))
+
+(defn transpose-matrix [m]
+  (vec (map vec (get-rows m))))
+
+(defn complex-conjugate-transpose
+  [complex-matrix]
+  (num/complex-conjugate (transpose-matrix complex-matrix)))
+
+;(vec (map vec (partition 3 (take 9 num/COMPLEX-NUMBERS))))

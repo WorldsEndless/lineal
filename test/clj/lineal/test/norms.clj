@@ -11,3 +11,11 @@
            (p-norm 2 [1 2 3]))))
   (testing "Infinity-norm"
     (is (= 10 (infinity-norm [1 8 4 -10])))))
+
+(deftest is-norm
+  (is false))
+
+
+(deftest induced-norms
+  (testing "Induce a matrix norm from a vector norm"
+    (is false)))
