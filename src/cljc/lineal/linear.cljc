@@ -96,7 +96,7 @@
                               :input coll} ))))
 
 (defn m*
-  "If A = (a_{ij}) is an m x n matrix and B = (b_{ij}) is an n*r matrix then the product AB = C = (c_{ij}) is the m x r matrix whose entries are defined by c_{ij} = a(i,:)b_j = the sum of all a_{ik}b_{kj} entries from k=1 to n."
+  "If A = (a_{ij}) is an m x n matrix and B = (b_{ij}) is an n x r matrix then the product AB = C = (c_{ij}) is the m x r matrix whose entries are defined by c_{ij} = a(i,:)b_j = the sum of all a_{ik}b_{kj} entries from k=1 to n."
   [A B]
   (let [A (if (is-vector? A) (vector-to-matrix A) A)
         B (if (is-vector? B) (vector-to-matrix B) B)
@@ -105,7 +105,7 @@
         count-a-col (count (get-columns A))
         count-b-rows (count (get-rows B))]
     (if-not (= count-a-col count-b-rows)
-      (throw (ex-info "Illegal matrix dimensions" {:type :illegal-matrix-multiplication :cause (str "Trying to multiply a " count-a-col " colum nmatrix by a " count-b-rows " rows matrix.")}))
+      (throw (ex-info "Illegal matrix dimensions" {:type :illegal-matrix-multiplication :cause (str "Trying to multiply a " count-a-col " colum matrix by a " count-b-rows " rows matrix.")}))
       (for [column columns]
         (for [row rows]
           (apply +
@@ -123,7 +123,6 @@
        (throw (ex-info "Wrong arg structure" {:type :illegal-types :cause (str "Trying to add non-vector with " V1 " + " V2)})))
      (when-not (= (count V1) (count V2))
        (ex-info "Non-matching lengths of supplied vectors" {:type :invalid-input :cause (str "Length " (count V1) " is not " (count V2))}))
-
      (for [[i v] (map-indexed vector V1)]
        (+ v (nth V2 i)))))
   ([V1 V2 & rest]
@@ -215,4 +214,9 @@
   [complex-matrix]
   (num/complex-conjugate (transpose-matrix complex-matrix)))
 
-;(vec (map vec (partition 3 (take 9 num/COMPLEX-NUMBERS))))
+(defn pos-vec?
+  "Is the provided vector all positive?"
+  [v]
+  (every? pos? v))
+
+;; equation-order: the number of the highest derivarive of a differential equation

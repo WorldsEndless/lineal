@@ -12,6 +12,14 @@
      (repeatedly space-dimensionality #(repeatedly space-dimensionality (fn [] (rand-nth int-pool)))))))
 
 
+
+
+(deftest matrix-multiplication
+  (deftest "Leon 3 ed. pg. 25-26, section 3"
+    (deftest "Example 2"
+      (is (= [[-2 24 16]] (m* [[-3 2 4] [1 5 2]] [[2 4]]))))))
+
+
 (deftest Denton-chapter-1
   (testing "Reading 1: Commutative vector addition"
     (let [M [[1 3 5] [4 6 8] [2 8 16]]
@@ -132,6 +140,20 @@
            (* b (ip-function x z))))
      (or (vs/zero-vector? x) ;; Positivity
          (pos? (ip-function x x))))))
+
+(defn norm?
+  "Determine whether a function which takes one vector appears to be a norm"
+  [norm-function]
+  (let [x (random-vector 8)
+        y (random-vector 8)
+        z (random-vector 8)
+        a (* -1 (rand-int 100))
+        b (rand-int 100)]
+    ;; positivity
+    (and
+     (pos-vec? (norm-function x))
+     )
+    ))
 
 
 (deftest inner-product
