@@ -31,6 +31,7 @@
                  [selmer "1.11.1"]
                  [garden "1.3.2"]
                  [org.clojure/math.numeric-tower "0.0.4"]
+                 [uncomplicate/neanderthal "0.19.0"]
                  ; [complex "0.1.11"] ; java strong implementation for complex numbers re: Apache
                  [garden-gnome "0.1.0"]]
 
@@ -46,7 +47,9 @@
   :plugins [[lein-cprop "1.0.3"]
             [lein-cljsbuild "1.1.5"]
             [lein-immutant "2.1.0"]
+            [lein-with-env-vars "0.1.0"]
             [lein-garden "0.3.0"]]
+  :env-vars {:LD_LIBRARY_PATH "/home/torysa/mkl/"}
   :garden {:builds [{:id "lineal"
                      :source-path "src/clj"
                      :stylesheet lineal.style/lineal

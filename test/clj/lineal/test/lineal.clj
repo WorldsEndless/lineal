@@ -11,13 +11,16 @@
     (Vector-Space
      (repeatedly space-dimensionality #(repeatedly space-dimensionality (fn [] (rand-nth int-pool)))))))
 
-
-
-
 (deftest matrix-multiplication
-  (deftest "Leon 3 ed. pg. 25-26, section 3"
-    (deftest "Example 2"
-      (is (= [[-2 24 16]] (m* [[-3 2 4] [1 5 2]] [[2 4]]))))))
+  (testing "Leon 3 ed. pg. 25-26, section 3"
+    (testing "Example 2"
+      (let [A (->Matrix [[-3 2 4] [1 5 2]])
+            B (->Matrix [[2 4]])
+            solution [[-2 24 16]]] ;(def solution [[-2 24 16]])
+        (testing "Basic m*"
+          (is (= solution (m* A B))))
+        (testing "Matrix is a function, too"
+          (is (= solution (A B) )))))))
 
 
 (deftest Denton-chapter-1

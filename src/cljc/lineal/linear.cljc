@@ -113,6 +113,29 @@
                    (let [corresponding-item (nth column ri)]
                      (* corresponding-item row-item)))))))))
 
+(defprotocol M
+  (rows [m])
+  (columns [m]))
+
+(deftype Matrix [A]
+  M
+  (rows [_] (get-rows A))
+  (columns [_] (get-columns A))
+  
+  #?(:clj clojure.lang.ISeq
+     :cljs ISeq)
+  (seq [_] (#?(:clj seq :cljs -seq)
+            A))
+
+  #?(:clj clojure.lang.Counted
+     :cljs Counted)
+  (count [_] (#?(:clj count :cljs -count)
+              A))
+  
+  #?(:clj clojure.lang.IFn
+     :cljs IFn)
+  (#?(:clj invoke :cljs -invoke) [_ B] (m* A B)))
+
 (defn v+
   "Vector addition"
   ([] nil)
