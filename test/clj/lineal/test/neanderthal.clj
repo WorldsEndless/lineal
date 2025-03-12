@@ -260,3 +260,45 @@
 
 
   
+(deftest linear-transformatoins
+  (let [source-url "https://dragan.rocks/articles/17/Clojure-Linear-Algebra-Refresher-Linear-Transformations#orgfcf3de8"]
+    (testing "Find matrix for transformation"
+      ;; columns and matrices are functions that can get/set
+      (let [t! (fn [v]
+                 (v 0 (+ (* 2 (v 0)) (v 1)))
+                 (v 1 (* 3 (v 1))))
+            A (nn/dge 2 2 [1 0 0 1])]
+        (t! (nc/col A 0))
+        (t! (nc/col A 1))
+        (is (= '(2.0 0.0 1.0 3.0)
+               (-> A seq flatten)))))
+    (testing "Rotation about arbitrary point"
+      (let [t1-change-origin (fn [p] (nn/dge 3 3 [1 0 0
+                                    0 1 0
+                                    (- (p 0)) (- (p 1)) 1]))
+            r (fn [theta]
+                (let [c (nm/cos theta)
+                      s (nm/sin theta)]
+                  (nn/dge 3 3 [c s 0
+                               (- s) c 0
+                               0 0 1])))
+            t2-return-origin (fn [p] (nn/dge 3 3 [1 0 0
+                                    0 1 0
+                                    (p 0) (p 1) 1]))
+            t2rt1 (fn [p theta] (nc/mm (t2-return-origin p) (r theta) (t1-change-origin p)))
+            arbitrary-point (nn/dv 5 4)
+            my-theta (/ nm/pi 2)
+            answer '(0.0 1.0 0.0 -1.0 0.0 0.0 9.0 -1.0 1.0)]
+        (is (= answer
+               (->> (t2rt1 (nn/dv 5 4) (/ nm/pi 2))
+                   seq
+                   flatten
+                   (all-round 1))))))))
+
+(deftest kernel-range-nullity
+  ;; https://dragan.rocks/articles/17/Clojure-Linear-Algebra-Refresher-Linear-Transformations#org2cb94af
+  (let [a (nn/dge 3 3 [1 0 1 2 -1 1 3 1 4])
+        eigenvectors (nn/dge 3 3)
+        lambdas (la/ev! a nil eigenvectors)]
+       (testing "Eigenvectors"
+         (is (nil? eigenvectors)))))
