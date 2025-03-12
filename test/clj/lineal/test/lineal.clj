@@ -1,7 +1,8 @@
 (ns lineal.test.lineal
   (:require [clojure.test :refer :all]
             [lineal.test.vector-spaces :as vs]
-            [lineal.linear :refer :all]))
+            [lineal.linear :refer :all]
+            [lineal.linear-algebra.core :as la]))
 
 (defn random-vector-space
   "Generate a random vector"
@@ -128,39 +129,8 @@
   ([n] (random-vector n 1000))
   ([n m] (vec (repeatedly n #(* (rand-nth [1 -1]) (rand-int m))))))
 
-(defn inner-product?
-  "Determine whether the function that takes two vectors is a valid inner-product"
-  [ip-function]
-  (let [x (random-vector 8)
-        y (random-vector 8)
-        z (random-vector 8)
-        a (* -1 (rand-int 100))
-        b (rand-int 100)]
-    (and 
-     (= (ip-function x y) (ip-function y x)) ;; Symmetry
-     (= (ip-function x (v+ (scale y a) (scale z b))) ;; Linearity
-        (+ (* a (ip-function x y))
-           (* b (ip-function x z))))
-     (or (vs/zero-vector? x) ;; Positivity
-         (pos? (ip-function x x))))))
-
-(defn norm?
-  "Determine whether a function which takes one vector appears to be a norm"
-  [norm-function]
-  (let [x (random-vector 8)
-        y (random-vector 8)
-        z (random-vector 8)
-        a (* -1 (rand-int 100))
-        b (rand-int 100)]
-    ;; positivity
-    (and
-     (pos-vec? (norm-function x))
-     )
-    ))
-
-
 (deftest inner-product
   (testing "The Euclidian (dot-product) is a valid inner-product"
-    (is (inner-product? dot-product)))
+    (is (la/inner-product? dot-product)))
   (testing "Vector addition is not a valid inner-product"
-    (is (inner-product? v+))))
+    (is (la/inner-product? v+))))
